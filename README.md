@@ -1,0 +1,1 @@
+# Umbraco-hide-properties
