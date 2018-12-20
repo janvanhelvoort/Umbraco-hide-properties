@@ -36,6 +36,7 @@
     <Compile Include="Mapping\Profile\RuleProfile.cs" />
     <Compile Include="Migrations\InitialMigration.cs" />
     <Compile Include="Models\Pocos\Rule.cs" />
+    <Compile Include="Models\Repositories\RuleRepository.cs" />
     <Compile Include="Models\Rule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
