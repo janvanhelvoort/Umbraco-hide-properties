@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Constants\TableConstants.cs" />
+    <Compile Include="Mapping\Profile\RuleProfile.cs" />
     <Compile Include="Models\Pocos\Rule.cs" />
     <Compile Include="Models\Rule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
