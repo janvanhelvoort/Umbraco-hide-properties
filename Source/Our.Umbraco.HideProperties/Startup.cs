@@ -2,11 +2,13 @@
 {
     using System;
     using System.Linq;
+    using AutoMapper;
     using global::Umbraco.Core;
     using global::Umbraco.Core.Logging;
     using global::Umbraco.Core.Persistence.Migrations;
     using global::Umbraco.Web;
     using Our.Umbraco.HideProperties.Constants;
+    using Our.Umbraco.HideProperties.Mapping.Profile;
     using Semver;
     public class Startup : ApplicationEventHandler
     {
@@ -17,6 +19,8 @@
                 base.ApplicationStarted(umbracoApplication, applicationContext);
 
                 this.SetupMigration();
+
+                Mapper.AddProfile<RuleProfile>();
             }
         }
 
