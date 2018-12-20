@@ -5,6 +5,8 @@
 
     public class Rule
     {
+        public int Id { get; set; }
+
         public Guid Key { get; set; }
 
         public bool IsActive { get; set; }
