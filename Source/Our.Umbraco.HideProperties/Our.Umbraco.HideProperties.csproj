@@ -31,8 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Attributes\CamelCaseAttribute.cs" />
     <Compile Include="Constants\ApplicationConstants.cs" />
     <Compile Include="Constants\TableConstants.cs" />
+    <Compile Include="Controllers\ApiControllers\RulesApiController.cs" />
     <Compile Include="Mapping\Profile\RuleProfile.cs" />
     <Compile Include="Migrations\InitialMigration.cs" />
     <Compile Include="Models\Pocos\Rule.cs" />
