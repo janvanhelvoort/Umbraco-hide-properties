@@ -3,11 +3,10 @@
     <div class="umb-control-group -no-border">
         <div class="form-search">
             <i class="icon-search"></i>
-            <input type="text" class="-full-width-input" ng-model="content.filterTerm" localize="placeholder" placeholder="@placeholders_filter"
-                umb-auto-focus no-dirty-check>
+            <input type="text" class="-full-width-input" ng-model="content.filterTerm" localize="placeholder" placeholder="@placeholders_filter" umb-auto-focus no-dirty-check>
         </div>
     </div>
-    
+
     <ul class="umb-actions umb-actions-child">
         <li ng-repeat="property in model.selectedContentTypeProperties | filter:content.filterTerm" ng-click="pickProperty(property)">
             <a href="" title="{{ property.label }}">

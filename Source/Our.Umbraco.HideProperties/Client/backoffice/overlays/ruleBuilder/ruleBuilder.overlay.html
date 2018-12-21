@@ -3,34 +3,29 @@
     <umb-load-indicator ng-if="isLoading" />
 
     <ng-form name="ruleBuilderForm">
-        <umb-control-group label="Document type" description="Select document type" ng-if="!isLoading">
-            <umb-node-preview ng-if="content.selectedContentType" name="content.selectedContentType.name" icon="content.selectedContentType.icon"
-                allow-remove="true" on-remove="removeContentType()" />
-            <a href="javascript:;" ng-if="!content.selectedContentType" class="umb-node-preview-add" ng-click="openContentTypePickerOverlay()"
-                prevent-default>
+        <umb-control-group label="@hideProperties_contentType" description="@hideProperties_contentTypeDescription" ng-if="!isLoading">
+            <umb-node-preview ng-if="content.selectedContentType" name="content.selectedContentType.name" icon="content.selectedContentType.icon" allow-remove="true" on-remove="removeContentType()" />
+            <a href="javascript:;" ng-if="!content.selectedContentType" class="umb-node-preview-add" ng-click="openContentTypePickerOverlay()" prevent-default>
                 <localize key="general_add">Add</localize>
             </a>
         </umb-control-group>
 
-        <umb-control-group label="Tabs" description="Select tabs to hide" ng-if="!isLoading && content.selectedContentType">
-            <umb-node-preview ng-repeat="tab in content.selectedTabs" name="tab.name" icon="icon-tab" allow-remove="true"
-                on-remove="removeTab(tab)" />
+        <umb-control-group label="@hideProperties_tabs" description="@hideProperties_tabsDescription" ng-if="!isLoading && content.selectedContentType">
+            <umb-node-preview ng-repeat="tab in content.selectedTabs" name="tab.name" icon="icon-tab" allow-remove="true" on-remove="removeTab(tab)" />
             <a href="javascript:;" class="umb-node-preview-add" ng-click="openTabPickerOverlay()" prevent-default>
                 <localize key="general_add">Add</localize>
             </a>
         </umb-control-group>
 
-        <umb-control-group label="Properties" description="Select properties to hide" ng-if="!isLoading && content.selectedContentType">
-            <umb-node-preview ng-repeat="property in content.selectedProperties" name="property.label" description="getGroupName(property.groupId)"
-                icon="icon-autofill" allow-remove="true" on-remove="removeProperty(property)" />
+        <umb-control-group label="@hideProperties_properties" description="@hideProperties_propertiesDescription" ng-if="!isLoading && content.selectedContentType">
+            <umb-node-preview ng-repeat="property in content.selectedProperties" name="property.label" description="getGroupName(property.groupId)" icon="icon-autofill" allow-remove="true" on-remove="removeProperty(property)" />
             <a href="javascript:;" class="umb-node-preview-add" ng-click="openPropertyPickerOverlay()" prevent-default>
                 <localize key="general_add">Add</localize>
             </a>
         </umb-control-group>
 
-        <umb-control-group label="User groups" description="select groups witch apply this rule" ng-if="!isLoading && content.selectedContentType">
-            <umb-node-preview ng-repeat="userGroup in content.selectedUserGroups" name="userGroup.name" icon="icon-member"
-                allow-remove="true" on-remove="removeUserGroup(userGroup)" />
+        <umb-control-group label="@hideProperties_userGroups" description="@hideProperties_userGroupsDescription" ng-if="!isLoading && content.selectedContentType">
+            <umb-node-preview ng-repeat="userGroup in content.selectedUserGroups" name="userGroup.name" icon="icon-member" allow-remove="true" on-remove="removeUserGroup(userGroup)" />
             <a href="javascript:;" class="umb-node-preview-add" ng-click="openUserGroupPickerOverlay()" prevent-default>
                 <localize key="general_add">Add</localize>
             </a>

@@ -238,6 +238,8 @@
     <Content Include="Client\backoffice\overlays\ruleBuilder\ruleBuilderoverlay.controller.js" />
     <Content Include="Client\backoffice\overlays\tabPicker\tabPicker.controller.js" />
     <Content Include="Client\backoffice\overlays\tabPicker\tabPicker.overlay.html" />
+    <Content Include="Client\lang\en-US.xml" />
+    <Content Include="Client\lang\nl-NL.xml" />
     <Content Include="Client\resources\hide-properties.resource.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

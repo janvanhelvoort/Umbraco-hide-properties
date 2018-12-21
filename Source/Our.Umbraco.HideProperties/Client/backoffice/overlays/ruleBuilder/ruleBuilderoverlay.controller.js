@@ -1,4 +1,4 @@
-﻿function RuleBuilderOverlayController($scope, contentTypeResource, userGroupsResource) {
+﻿function RuleBuilderOverlayController($scope, contentTypeResource, userGroupsResource, localizationService) {
 
     $scope.isLoading = true;
     $scope.content = { selectedContentType: undefined, selectedTabs: [], selectedProperties: [], selectedUserGroups: [] };
@@ -40,9 +40,8 @@
                 });
 
                 $scope.ruleBuilderForm.selectedContentType.$setValidity("selectedContentType", true)
-                $scope.ruleBuilderForm.selectedUserGroups.$setValidity("selectedUserGroups", initialRule.userGroups.length > 0);                                
-            }else 
-            {
+                $scope.ruleBuilderForm.selectedUserGroups.$setValidity("selectedUserGroups", initialRule.userGroups.length > 0);
+            } else {
                 $scope.ruleBuilderForm.selectedContentType.$setValidity("selectedContentType", false);
             }
         } else {
@@ -60,7 +59,7 @@
     $scope.openContentTypePickerOverlay = function () {
         $scope.contentTypePickerOverlay = {
             view: "itempicker",
-            title: "Content type picker",
+            title: localizationService.localize("hideProperties_contentTypeOverlay"),
             availableItems: $scope.contentTypes,
             show: true,
             submit: function (model) {
@@ -81,7 +80,7 @@
     $scope.openTabPickerOverlay = function () {
         $scope.tabPickerOverlay = {
             view: "../App_Plugins/Umbraco-hide-properties/backoffice/overlays/tabPicker/tabPicker.overlay.html",
-            title: "Tab picker",
+            title: localizationService.localize("hideProperties_tabOverlay"),
             show: true,
             hideSubmitButton: false,
             selectedTabs: $scope.content.selectedTabs,
@@ -103,7 +102,7 @@
 
         $scope.propertyPickerOverlay = {
             view: "../App_Plugins/Umbraco-hide-properties/backoffice/overlays/propertyPicker/propertyPicker.overlay.html",
-            title: "Property picker",
+            title: localizationService.localize("hideProperties_propertyOverlay"),
             show: true,
             hideSubmitButton: false,
             selectedProperties: $scope.content.selectedProperties,
@@ -122,7 +121,7 @@
     $scope.openUserGroupPickerOverlay = function () {
         $scope.userGroupPickerOverlay = {
             view: "usergrouppicker",
-            title: "User group picker",
+            title: localizationService.localize("hideProperties_userGroupOverlay"),
             show: true,
             hideSubmitButton: false,
             selection: $scope.content.selectedUserGroups,
@@ -140,7 +139,7 @@
 
     $scope.removeContentType = function () {
         $scope.content = { selectedTabs: [], selectedProperties: [], selectedUserGroups: [] };
-        
+
         $scope.ruleBuilderForm.selectedContentType.$setValidity("selectedContentType", false);
         $scope.ruleBuilderForm.selectedUserGroups.$setValidity("selectedUserGroups", true);
     };
@@ -172,8 +171,8 @@
             }
         });
 
-        $scope.model.rule.userGroups = $scope.content.selectedUserGroups.map(function (userGroup) { return userGroup.alias });        
-        
+        $scope.model.rule.userGroups = $scope.content.selectedUserGroups.map(function (userGroup) { return userGroup.alias });
+
         $scope.ruleBuilderForm.selectedUserGroups.$setValidity("selectedUserGroups", $scope.model.rule.userGroups.length > 0);
     }
 }

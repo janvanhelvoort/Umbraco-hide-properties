@@ -3,7 +3,8 @@
 
     <umb-editor-sub-header ng-if="!page.loading && content.rules">
         <umb-editor-sub-header-content-left>
-            <umb-button type="button" label="Create rule" action="openRuleBuilderOverlay()" />
+            <umb-editor-sub-header-section>
+                <umb-button type="button" label-key="@hideProperties_createRule" action="openRuleBuilderOverlay()" />
             </umb-editor-sub-header-section>
         </umb-editor-sub-header-content-left>
 
@@ -13,8 +14,7 @@
                 <form class="form-search -no-margin-bottom pull-right" novalidate>
                     <div class="inner-addon left-addon">
                         <i class="icon icon-search"></i>
-                        <input class="form-control search-input" type="text" localize="placeholder" placeholder="@general_typeToSearch"
-                            ng-model="content.filterTerm" umb-auto-focus no-dirty-check>
+                        <input class="form-control search-input" type="text" localize="placeholder" placeholder="@general_typeToSearch" ng-model="content.filterTerm" umb-auto-focus no-dirty-check>
                     </div>
                 </form>
             </umb-editor-sub-header-section>
@@ -27,16 +27,16 @@
                 <div class="umb-table-cell">
                 </div>
                 <div class="umb-table-cell umb-table__name">
-                    <span>Content type</span>
+                    <localize key="hideProperties_contentType">Content Type</localize>
                 </div>
                 <div class="umb-table-cell">
-                    <span>Tabs</span>
+                    <localize key="hideProperties_tabs">Tabs</localize>
                 </div>
                 <div class="umb-table-cell">
-                    <span>Properties</span>
+                    <localize key="hideProperties_properties">Properties</localize>
                 </div>
                 <div class="umb-table-cell">
-                    <span>User groups</span>
+                    <localize key="hideProperties_userGroups">User groups</localize>
                 </div>
             </div>
         </div>
@@ -69,9 +69,8 @@
     </div>
 
     <umb-empty-state ng-if="content.rules.length === 0" position="center">
-        <p>Please, create some rules</p>
-
-        <umb-button type="button" label="Create rule" action="openRuleBuilderOverlay()" />
+        <p><localize key="hideProperties_noRules">Please, create some rules</localize></p>
+        <umb-button type="button" label-key="@hideProperties_createRule" action="openRuleBuilderOverlay()" />
     </umb-empty-state>
 
     <umb-overlay ng-if="ruleBuilderOverlay.show" model="ruleBuilderOverlay" view="ruleBuilderOverlay.view" position="right" />

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+
+<language alias="en" intName="English (US)" localName="English (US)" lcid="" culture="en-US">
+  <area alias="hideProperties">
+    <key alias="createRule">Create new rule</key>    
+
+    <key alias="contentType">Content type</key>
+    <key alias="contentTypeDescription">Select content type witch apply this rule</key>
+    <key alias="tabs">Tabs</key>
+    <key alias="tabsDescription">Select zero or more tabs</key>
+    <key alias="properties">Properties</key>
+    <key alias="propertiesDescription">Select zero or more properties</key>
+    <key alias="userGroups">User groups</key>
+    <key alias="userGroupsDescription">Select one or more user groups witch apply this rule</key>
+
+    <key alias="ruleOverlay">Rule</key>
+    <key alias="contentTypeOverlay">Select content type</key>
+    <key alias="tabOverlay">Select tabs</key>
+    <key alias="propertyOverlay">Select properties</key>
+    <key alias="userGroupOverlay">Select user groups</key>
+
+    <key alias="noRules">Please, create some rules</key>
+    <key alias="noContentTypeSelected">Please, select a content type</key>
+    <key alias="noUserGroupsSelected">Please, select one or more user groups</key>
+  </area>
+</language>

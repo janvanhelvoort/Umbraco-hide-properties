@@ -1,4 +1,4 @@
-﻿function DashboardController($scope, hidePropertiesResource) {
+﻿function DashboardController($scope, localizationService, hidePropertiesResource) {
     $scope.page = { isLoading: true, };
     $scope.content = { rules: undefined };
 
@@ -10,7 +10,7 @@
     $scope.openRuleBuilderOverlay = function (rule) {        
         $scope.ruleBuilderOverlay = {
             view: "../App_Plugins/Umbraco-hide-properties/backoffice/overlays/ruleBuilder/ruleBuilder.overlay.html",
-            title: "Rule builder",
+            title: localizationService.localize("hideProperties_ruleOverlay"),
             show: true,
             initialRule: rule,
             hideSubmitButton: false,

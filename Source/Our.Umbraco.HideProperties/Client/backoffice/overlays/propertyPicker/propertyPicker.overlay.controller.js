@@ -1,4 +1,4 @@
-﻿function PropertyPickerOverlayController($scope) {  
+﻿function PropertyPickerOverlayController($scope) {
     $scope.pickProperty = function (property) {
         if (property.selected) {
             property.selected = false;
@@ -22,11 +22,11 @@
     }
 
     var selectedPropertyAliasses = $scope.model.selectedProperties.map(function (property) { return property.alias });
-    angular.forEach($scope.model.selectedContentTypeProperties, function (property, index) {
+    angular.forEach($scope.model.selectedContentTypeProperties, function (property) {
         if (selectedPropertyAliasses.indexOf(property.alias) > -1) {
             property.selected = true;
         }
-    });    
+    });
 }
 
 angular.module("umbraco").controller("HideProperties.PropertyPickerOverlayController", PropertyPickerOverlayController);
