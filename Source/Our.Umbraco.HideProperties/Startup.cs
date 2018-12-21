@@ -13,10 +13,12 @@
     using global::Umbraco.Core.Logging;
     using global::Umbraco.Core.Persistence.Migrations;
     using global::Umbraco.Web;
+    using global::Umbraco.Web.Editors;
     using global::Umbraco.Web.UI.JavaScript;
 
     using Our.Umbraco.HideProperties.Constants;
     using Our.Umbraco.HideProperties.Controllers.ApiControllers;
+    using Our.Umbraco.HideProperties.EventHandlers;
     using Our.Umbraco.HideProperties.Mapping.Profile;
 
     using Semver;
@@ -32,6 +34,8 @@
                 this.SetupMigration();
 
                 Mapper.AddProfile<RuleProfile>();
+
+                EditorModelEventManager.SendingContentModel += EditorModelEventManagerEventHandler.SendingContentModel;
 
                 ServerVariablesParser.Parsing += this.ServerVariablesParserParsing;
             }
@@ -63,7 +67,7 @@
                     LogHelper.Error<Startup>("Error running Statistics migration", e);
                 }
             }
-        }
+        }    
 
         private void ServerVariablesParserParsing(object sender, Dictionary<string, object> e)
         {
