@@ -11,7 +11,7 @@
     <key alias="properties">Eigenschappen</key>
     <key alias="propertiesDescription">Selecteer nul of meer eigenschappen</key>
     <key alias="userGroups">Gebruikersgroepen</key>
-    <key alias="userGroupsDescription">Selecteer een of meer gebruikersgroepen waarop deze regel van toepassing is</key>
+    <key alias="userGroupsDescription">Selecteer één of meer gebruikersgroepen waarop deze regel van toepassing is</key>
 
     <key alias="ruleOverlay">Regel</key>
     <key alias="contentTypeOverlay">Selecteer inhoudstype</key>
@@ -20,7 +20,7 @@
     <key alias="userGroupOverlay">Selecteer gebruikersgroepen</key>
 
     <key alias="noRules">Maak alstublieft enkele regels</key>
-    <key alias="noContentTypeSelected">Selecteer alstublieft een inhoudstype</key>
-    <key alias="noUserGroupsSelected">Selecteer alstublieft een of meer gebruikersgroepen</key>
+    <key alias="noContentTypeSelected">Selecteer een inhoudstype</key>
+    <key alias="noUserGroupsSelected">Selecteer een of meer gebruikersgroepen</key>
   </area>
 </language>
