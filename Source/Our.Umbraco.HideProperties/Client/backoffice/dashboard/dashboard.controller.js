@@ -1,6 +1,6 @@
 ﻿function DashboardController($scope, localizationService, hidePropertiesResource) {
     $scope.page = { isLoading: true, };
-    $scope.content = { rules: undefined };
+    $scope.content = { rules: [] };
 
     hidePropertiesResource.getRules().then(function (result) {
         $scope.content.rules = result.data;
