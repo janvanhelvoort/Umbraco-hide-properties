@@ -232,6 +232,12 @@
   <ItemGroup>
     <Content Include="Client\backoffice\dashboard\dashboard.controller.js" />
     <Content Include="Client\backoffice\dashboard\dashboard.html" />
+    <Content Include="Client\backoffice\overlays\propertyPicker\propertyPicker.overlay.controller.js" />
+    <Content Include="Client\backoffice\overlays\propertyPicker\propertyPicker.overlay.html" />
+    <Content Include="Client\backoffice\overlays\ruleBuilder\ruleBuilder.overlay.html" />
+    <Content Include="Client\backoffice\overlays\ruleBuilder\ruleBuilderoverlay.controller.js" />
+    <Content Include="Client\backoffice\overlays\tabPicker\tabPicker.controller.js" />
+    <Content Include="Client\backoffice\overlays\tabPicker\tabPicker.overlay.html" />
     <Content Include="Client\resources\hide-properties.resource.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

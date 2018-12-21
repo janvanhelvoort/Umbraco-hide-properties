@@ -1,5 +1,11 @@
 ﻿{
 	javascript: [
 		'~/App_Plugins/Umbraco-hide-properties/resources/hide-properties.resource.js',
+
+		'~/App_Plugins/Umbraco-hide-properties/backoffice/dashboard/dashboard.controller.js',
+		
+		'~/App_Plugins/Umbraco-hide-properties/backoffice/overlays/ruleBuilder/ruleBuilderoverlay.controller.js',
+		'~/App_Plugins/Umbraco-hide-properties/backoffice/overlays/tabPicker/tabPicker.controller.js',
+		'~/App_Plugins/Umbraco-hide-properties/backoffice/overlays/propertyPicker/propertyPicker.overlay.controller.js'
 	]
 }

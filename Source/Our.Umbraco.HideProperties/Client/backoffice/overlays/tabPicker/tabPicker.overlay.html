@@ -1,0 +1,22 @@
+﻿<div ng-controller="HideProperties.TabPickerOverlayController">
+    <!-- FILTER -->
+    <div class="umb-control-group -no-border">
+        <div class="form-search">
+            <i class="icon-search"></i>
+            <input type="text" class="-full-width-input" ng-model="content.filterTerm" localize="placeholder" placeholder="@placeholders_filter"
+                umb-auto-focus no-dirty-check>
+        </div>
+    </div>
+    
+    <ul class="umb-actions umb-actions-child">
+        <li ng-repeat="group in model.selectedContentTypeGroups | filter:content.filterTerm" ng-click="pickGroup(group)">
+            <a href="" title="{{ group.name }}">
+                <i ng-if="!group.selected" class="icon-tab"></i>
+                <i ng-if="group.selected" class="icon-check color-green"></i>
+                <span class="menu-label">
+                    {{group.name}}
+                </span>
+            </a>
+        </li>
+    </ul>
+</div>
