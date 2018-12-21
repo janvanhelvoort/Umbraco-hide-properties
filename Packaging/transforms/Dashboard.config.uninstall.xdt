@@ -1,0 +1,3 @@
+<dashBoard xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">  
+  <section alias="Our.Umbraco.HideProperties" xdt:Locator="Match(alias)" xdt:Transform="Remove" />			
+</dashBoard>

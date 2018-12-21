@@ -1,0 +1,36 @@
+
+C:\Git\GitHub\Umbraco-hide-properties\Packaging>ECHO APPVEYOR_REPO_BRANCH:  
+APPVEYOR_REPO_BRANCH: 
+
+C:\Git\GitHub\Umbraco-hide-properties\Packaging>ECHO APPVEYOR_REPO_TAG:  
+APPVEYOR_REPO_TAG: 
+
+C:\Git\GitHub\Umbraco-hide-properties\Packaging>ECHO APPVEYOR_BUILD_NUMBER :  
+APPVEYOR_BUILD_NUMBER : 
+
+C:\Git\GitHub\Umbraco-hide-properties\Packaging>ECHO APPVEYOR_BUILD_VERSION :  
+APPVEYOR_BUILD_VERSION : 
+
+C:\Git\GitHub\Umbraco-hide-properties\Packaging>Call Tools\Nuget.exe restore ..\Source\Our.Umbraco.HideProperties.sln 
+MSBuild auto-detection: using msbuild version '14.0' from 'C:\Program Files (x86)\MSBuild\14.0\bin'.
+All packages listed in packages.config are already installed.
+
+C:\Git\GitHub\Umbraco-hide-properties\Packaging>CALL "C:\Program Files (x86)\MSBuild\14.0\Bin\MsBuild.exe" build.xml 
+Microsoft (R) Build Engine version 14.0.25420.1
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 21-12-2018 20:59:21.
+Project "C:\Git\GitHub\Umbraco-hide-properties\Packaging\build.xml" on node 1 (default targets).
+C:\Git\GitHub\Umbraco-hide-properties\Packaging\build.xml(77,3): error MSB4044: The "GetProductVersion" task was not given a value for the required parameter "BuildVersion".
+Done Building Project "C:\Git\GitHub\Umbraco-hide-properties\Packaging\build.xml" (default targets) -- FAILED.
+
+Build FAILED.
+
+"C:\Git\GitHub\Umbraco-hide-properties\Packaging\build.xml" (default target) (1) ->
+(GetProductVersion target) -> 
+  C:\Git\GitHub\Umbraco-hide-properties\Packaging\build.xml(77,3): error MSB4044: The "GetProductVersion" task was not given a value for the required parameter "BuildVersion".
+
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.20

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<dashBoard xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">  
+	<section alias="Our.Umbraco.HideProperties" xdt:Locator="Match(alias)" xdt:Transform="InsertIfMissing">
+		<areas>
+			<area>settings</area>
+		</areas>
+		<tab caption="Hide Properties">
+			<control>/app_Plugins/umbraco-hide-properties/backoffice/dashboard/dashboard.html</control>
+		</tab>
+	</section>
+</dashBoard>
