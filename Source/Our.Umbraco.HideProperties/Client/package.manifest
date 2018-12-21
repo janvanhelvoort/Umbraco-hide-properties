@@ -1,0 +1,5 @@
+﻿{
+	javascript: [
+		'~/App_Plugins/Umbraco-hide-properties/resources/hide-properties.resource.js',
+	]
+}
