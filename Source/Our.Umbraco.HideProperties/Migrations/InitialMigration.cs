@@ -32,7 +32,8 @@
                 .WithColumn("ContentTypeAlias").AsString().NotNullable()
                 .WithColumn("Tabs").AsString().Nullable()
                 .WithColumn("Properties").AsString().Nullable()
-                .WithColumn("UserGroups").AsString().Nullable();
+                .WithColumn("UserGroups").AsString().Nullable()
+                .WithColumn("IsDeleted").AsBoolean().NotNullable();
             }
         }
 

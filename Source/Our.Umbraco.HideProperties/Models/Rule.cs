@@ -18,5 +18,7 @@
         public IEnumerable<string> Properties { get; set; }
 
         public IEnumerable<string> UserGroups { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }

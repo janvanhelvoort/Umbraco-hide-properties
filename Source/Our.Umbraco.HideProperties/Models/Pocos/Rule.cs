@@ -23,5 +23,7 @@
         public string Properties { get; set; }
 
         public string UserGroups { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }
