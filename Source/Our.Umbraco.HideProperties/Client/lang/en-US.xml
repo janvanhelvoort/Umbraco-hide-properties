@@ -5,13 +5,13 @@
     <key alias="createRule">Create new rule</key>    
 
     <key alias="contentType">Content type</key>
-    <key alias="contentTypeDescription">Select content type which apply this rule</key>
+    <key alias="contentTypeDescription">Select content type that this rule applies to</key>
     <key alias="tabs">Tabs</key>
     <key alias="tabsDescription">Select zero or more tabs</key>
     <key alias="properties">Properties</key>
     <key alias="propertiesDescription">Select zero or more properties</key>
     <key alias="userGroups">User groups</key>
-    <key alias="userGroupsDescription">Select one or more user groups which apply this rule</key>
+    <key alias="userGroupsDescription">Select one or more user groups that this rule applies to</key>
 
     <key alias="ruleOverlay">Rule</key>
     <key alias="contentTypeOverlay">Select content type</key>
