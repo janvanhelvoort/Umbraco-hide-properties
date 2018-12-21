@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class CacheRefresherConstants
+    internal class CacheRefresherConstants
     {
         private const string RuleCacheRefreshId = "F00F0B39-E479-4844-B202-0C3FC6B65C58";
 

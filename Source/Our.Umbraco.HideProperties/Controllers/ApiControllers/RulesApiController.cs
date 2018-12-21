@@ -38,7 +38,7 @@
                 }
 
                 return this.Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Can't save rule");
-            }                
+            }
         }
     }
 }

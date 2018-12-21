@@ -1,6 +1,6 @@
 ﻿namespace Our.Umbraco.HideProperties.Constants
 {
-    public class ApplicationConstants
+    internal class ApplicationConstants
     {
         public const string ProductName = "HideProperties";
     }

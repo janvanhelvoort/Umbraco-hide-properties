@@ -11,8 +11,8 @@
 
         public bool IsActive { get; set; }
 
-        public string ContentTypeAlias { get; set; }       
-        
+        public string ContentTypeAlias { get; set; }
+
         public IEnumerable<string> Tabs { get; set; }
 
         public IEnumerable<string> Properties { get; set; }

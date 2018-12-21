@@ -26,13 +26,6 @@
             return this.Database.Fetch<Rule>(query);
         }
 
-        public Rule GetByKey(int key)
-        {
-            var query = new Sql().Select("*").From(TableConstants.Rules.TableName).Where<Rule>(x => x.Key.Equals(key), this.SqlSyntax);
-
-            return this.Database.Fetch<Rule>(query).FirstOrDefault();
-        }
-
         public Rule Save(Rule rule)
         {
             if (rule != null)

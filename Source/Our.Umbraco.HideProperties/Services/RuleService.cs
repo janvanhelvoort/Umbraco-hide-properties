@@ -16,12 +16,14 @@
     {
         public static readonly RuleService Current = new RuleService();
 
-        public IEnumerable<Rule> Rules { get
+        public IEnumerable<Rule> Rules
+        {
+            get
             {
                 return (IEnumerable<Rule>)ApplicationContext.Current.ApplicationCache.RuntimeCache.GetCacheItem(RuntimeCacheConstants.RuntimeCacheKeyPrefix, () =>
                 {
                     return Mapper.Map<IEnumerable<Rule>>(RuleRepository.Current.Get());
-                }, TimeSpan.FromMinutes(RuntimeCacheConstants.DefaultExpiration), true);                
+                }, TimeSpan.FromMinutes(RuntimeCacheConstants.DefaultExpiration), true);
             }
         }
 
