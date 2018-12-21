@@ -33,13 +33,18 @@
 
         <input type="hidden" name="selectedContentType" ng-model="content" />
 
+        <input type="hidden" name="selectedTabsOrProperties" ng-model="content" />
+
         <input type="hidden" name="selectedUserGroups" ng-model="content" />
 
         <div class="help-inline" val-msg-for="selectedContentType" val-toggle-msg="selectedContentType">
-            <span>iets invullen qua content</span>
+            <localize key="hideProperties_noContentTypeSelected">Please, select a content type</localize>
+        </div>
+        <div class="help-inline" val-msg-for="selectedTabsOrProperties" val-toggle-msg="selectedTabsOrProperties">
+            <localize key="hideProperties_noTabsOrPropertiesSelected">Please, select one or more tabs or properties</localize>
         </div>
         <div class="help-inline" val-msg-for="selectedUserGroups" val-toggle-msg="selectedUserGroups">
-            <span>iets invullen qua groepen</span>
+            <localize key="hideProperties_noUserGroupsSelected">Please, select one or more user groups</localize>
         </div>
     </ng-form>
 

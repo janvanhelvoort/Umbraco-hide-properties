@@ -21,6 +21,7 @@
 
     <key alias="noRules">Maak alstublieft enkele regels</key>
     <key alias="noContentTypeSelected">Selecteer een inhoudstype</key>
-    <key alias="noUserGroupsSelected">Selecteer een of meer gebruikersgroepen</key>
+    <key alias="noTabsOrPropertiesSelected">Selecteer één of meer tabs of eigenschappen</key>
+    <key alias="noUserGroupsSelected">Selecteer één of meer gebruikersgroepen</key>
   </area>
 </language>

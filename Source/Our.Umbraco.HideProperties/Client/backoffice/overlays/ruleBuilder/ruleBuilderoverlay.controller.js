@@ -41,6 +41,7 @@
 
                 $scope.ruleBuilderForm.selectedContentType.$setValidity("selectedContentType", true)
                 $scope.ruleBuilderForm.selectedUserGroups.$setValidity("selectedUserGroups", initialRule.userGroups.length > 0);
+                $scope.ruleBuilderForm.selectedTabsOrProperties.$setValidity("selectedTabsOrProperties", initialRule.tabs.length > 0 || initialRule.properties.length > 0);                
             } else {
                 $scope.ruleBuilderForm.selectedContentType.$setValidity("selectedContentType", false);
             }
@@ -71,6 +72,7 @@
                     $scope.contentTypePickerOverlay = null;
 
                     $scope.ruleBuilderForm.selectedContentType.$setValidity("selectedContentType", true);
+                    $scope.ruleBuilderForm.selectedTabsOrProperties.$setValidity("selectedTabsOrProperties", false);
                     $scope.ruleBuilderForm.selectedUserGroups.$setValidity("selectedUserGroups", false);
                 });
             }
@@ -91,6 +93,8 @@
 
                 $scope.tabPickerOverlay.show = false;
                 $scope.tabPickerOverlay = null;
+
+                $scope.ruleBuilderForm.selectedTabsOrProperties.$setValidity("selectedTabsOrProperties", true);
             }
         };
     };
@@ -114,6 +118,8 @@
 
                 $scope.propertyPickerOverlay.show = false;
                 $scope.propertyPickerOverlay = null;
+
+                $scope.ruleBuilderForm.selectedTabsOrProperties.$setValidity("selectedTabsOrProperties", true);
             }
         };
     };
@@ -152,6 +158,8 @@
         });
 
         $scope.model.rule.tabs = $scope.content.selectedTabs.map(function (tab) { return tab.name });
+
+        $scope.ruleBuilderForm.selectedTabsOrProperties.$setValidity("selectedTabsOrProperties", $scope.model.rule.tabs.length > 0 || $scope.model.rule.properties.length > 0);
     };
 
     $scope.removeProperty = function (property) {
@@ -162,6 +170,8 @@
         });
 
         $scope.model.rule.properties = $scope.content.selectedProperties.map(function (property) { return property.alias });
+
+        $scope.ruleBuilderForm.selectedTabsOrProperties.$setValidity("selectedTabsOrProperties", $scope.model.rule.tabs.length > 0 || $scope.model.rule.properties.length > 0);
     };
 
     $scope.removeUserGroup = function (userGroup) {
