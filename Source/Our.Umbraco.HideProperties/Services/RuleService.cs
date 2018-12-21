@@ -3,8 +3,11 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+
     using AutoMapper;
+
     using global::Umbraco.Core;
+
     using Our.Umbraco.HideProperties.Constants;
     using Our.Umbraco.HideProperties.Models;
     using Our.Umbraco.HideProperties.Models.Repositories;
@@ -15,8 +18,10 @@
 
         public IEnumerable<Rule> Rules { get
             {
-
-                return Mapper.Map<IEnumerable<Rule>>(RuleRepository.Current.Get());
+                return (IEnumerable<Rule>)ApplicationContext.Current.ApplicationCache.RuntimeCache.GetCacheItem(RuntimeCacheConstants.RuntimeCacheKeyPrefix, () =>
+                {
+                    return Mapper.Map<IEnumerable<Rule>>(RuleRepository.Current.Get());
+                }, TimeSpan.FromMinutes(RuntimeCacheConstants.DefaultExpiration), true);                
             }
         }
 

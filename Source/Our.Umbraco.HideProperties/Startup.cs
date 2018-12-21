@@ -10,12 +10,13 @@
     using AutoMapper;
 
     using global::Umbraco.Core;
+    using global::Umbraco.Core.Cache;
     using global::Umbraco.Core.Logging;
     using global::Umbraco.Core.Persistence.Migrations;
     using global::Umbraco.Web;
     using global::Umbraco.Web.Editors;
     using global::Umbraco.Web.UI.JavaScript;
-
+    using Our.Umbraco.HideProperties.CacheRefresher;
     using Our.Umbraco.HideProperties.Constants;
     using Our.Umbraco.HideProperties.Controllers.ApiControllers;
     using Our.Umbraco.HideProperties.EventHandlers;
@@ -35,7 +36,9 @@
 
                 Mapper.AddProfile<RuleProfile>();
 
-                EditorModelEventManager.SendingContentModel += EditorModelEventManagerEventHandler.SendingContentModel;
+                EditorModelEventManager.SendingContentModel += EditorModelEventManagerEventHandler.SendingContentModel;                
+
+                CacheRefresherBase<RuleCacheRefresher>.CacheUpdated += this.CacheUpdated;
 
                 ServerVariablesParser.Parsing += this.ServerVariablesParserParsing;
             }
@@ -67,7 +70,13 @@
                     LogHelper.Error<Startup>("Error running Statistics migration", e);
                 }
             }
-        }    
+        }
+
+        private void CacheUpdated(RuleCacheRefresher sender, CacheRefresherEventArgs e)
+        {
+            // clear rule cache, this will executed on all servers
+            ApplicationContext.Current.ApplicationCache.RuntimeCache.ClearCacheByKeySearch(RuntimeCacheConstants.RuntimeCacheKeyPrefix);
+        }
 
         private void ServerVariablesParserParsing(object sender, Dictionary<string, object> e)
         {

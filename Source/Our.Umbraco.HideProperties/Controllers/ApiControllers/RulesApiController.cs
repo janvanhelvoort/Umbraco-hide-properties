@@ -7,6 +7,7 @@
     using global::Umbraco.Web.Editors;
 
     using Our.Umbraco.HideProperties.Attributes;
+    using Our.Umbraco.HideProperties.CacheRefresher;
     using Our.Umbraco.HideProperties.Models;
     using Our.Umbraco.HideProperties.Services;
 
@@ -31,6 +32,7 @@
                 if (rule != null)
                 {
                     transaction.Complete();
+                    RuleCacheRefresher.ClearCache();
 
                     return this.Request.CreateResponse(HttpStatusCode.OK, rule);
                 }
