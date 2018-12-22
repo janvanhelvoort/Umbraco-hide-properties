@@ -1,4 +1,4 @@
-﻿function DashboardController($scope, localizationService, hidePropertiesResource) {
+﻿function DashboardController($scope, $q, localizationService, hidePropertiesResource) {
     $scope.isLoading = true;
     $scope.content = { rules: [] };
 

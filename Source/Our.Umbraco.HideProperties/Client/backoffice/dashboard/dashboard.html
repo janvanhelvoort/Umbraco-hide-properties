@@ -21,6 +21,12 @@
                     </div>
                 </form>
             </umb-editor-sub-header-section>
+
+            <umb-editor-sub-header-section ng-if="isAnythingSelected()">
+                <umb-button type="button" button-style="link" label="Enable rules" label-key="hideProperties_enableRules" action="changeActiveState(true)" icon="icon-notepad-alt" disabled="actionInProgress" />
+
+                <umb-button type="button" button-style="link" label="Disable rules" label-key="hideProperties_disableRules" action="changeActiveState(false)" icon="icon-block" disabled="actionInProgress" />
+            </umb-editor-sub-header-section>
         </umb-editor-sub-header-content-right>
     </umb-editor-sub-header>
 
