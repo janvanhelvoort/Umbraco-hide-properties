@@ -23,5 +23,8 @@
     <key alias="noContentTypeSelected">Please, select a content type</key>
     <key alias="noTabsOrPropertiesSelected">Please, select one or more tabs or properties</key>
     <key alias="noUserGroupsSelected">Please, select one or more user groups</key>
+
+    <key alias="enableRules">Enable rules</key>
+    <key alias="disableRules">Disable Rules</key>
   </area>
 </language>

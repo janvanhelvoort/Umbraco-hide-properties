@@ -1,5 +1,5 @@
 ﻿function DashboardController($scope, localizationService, hidePropertiesResource) {
-    $scope.page = { isLoading: true, };
+    $scope.isLoading = true;
     $scope.content = { rules: [] };
 
     hidePropertiesResource.getRules().then(function (result) {
@@ -35,6 +35,17 @@
         return $scope.content.rules.every(function (rule) { return rule.isSelected });
     };
 
+    $scope.changeActiveState = function(activeState){
+        $scope.actionInProgress = true;
+
+        $q.all($scope.content.rules.filter(function(rule) { return rule.isSelected && rule.isActive != activeState }).map(function(rule){
+            rule.isActive = activeState
+            return hidePropertiesResource.saveRule(rule);
+        })).then(function() {
+            $scope.actionInProgress = false;
+        });
+    }
+
     $scope.openRuleBuilderOverlay = function (rule) {
         $scope.ruleBuilderOverlay = {
             view: "../App_Plugins/Umbraco-hide-properties/backoffice/overlays/ruleBuilder/ruleBuilder.overlay.html",
@@ -43,6 +54,8 @@
             initialRule: rule,
             hideSubmitButton: false,
             submit: function (model) {
+                $scope.isLoading = true;
+
                 hidePropertiesResource.saveRule(model.rule).then(function (result) {
                     if (model.rule.key) {
                         angular.forEach($scope.content.rules, function (rule, index) {
@@ -53,6 +66,8 @@
                     } else {
                         $scope.content.rules.push(result.data);
                     }
+
+                    $scope.isLoading = false;
                 })
 
                 $scope.ruleBuilderOverlay.show = false;
