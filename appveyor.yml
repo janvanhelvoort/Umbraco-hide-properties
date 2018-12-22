@@ -28,7 +28,7 @@ artifacts:
 deploy:
  # MyGet Deployment for beta releases  
   - provider: NuGet
-    server: https://www.myget.org/F/janvanhelvoort/
+    server: https://www.myget.org/F/janvanhelvoort/api/v2/package
     api_key:
       secure: y4EM8fqJBHkcJJBKwrVktFXOez5vDHSwKCR8UuVKL0KQzUSGbwMsfPOwOtzdN9VF
     artifact: /.*\.nupkg/
