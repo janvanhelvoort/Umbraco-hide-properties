@@ -21,10 +21,11 @@
         </umb-editor-sub-header-content-right>
     </umb-editor-sub-header>
 
-    <div class="umb-table" ng-if="!page.loading && content.rules.length > 0">
+    <div class="umb-table  -content" ng-if="!page.loading && content.rules.length > 0">
         <div class="umb-table-head">
             <div class="umb-table-row">
                 <div class="umb-table-cell">
+                    <input class="umb-table__input" type="checkbox" ng-click="selectAll($event)" ng-checked="isSelectedAll()">
                 </div>
                 <div class="umb-table-cell umb-table__name">
                     <localize key="hideProperties_contentType">Content Type</localize>
@@ -41,12 +42,13 @@
             </div>
         </div>
         <div class="umb-table-body">
-            <div class="umb-table-row" ng-repeat="rule in content.rules | filter:content.filterTerm" ng-click="openRuleBuilderOverlay(rule)">
+            <div class="umb-table-row" ng-repeat="rule in content.rules | filter:content.filterTerm" ng-click="selectItem(rule, $event)" ng-class="{'-selected':rule.isSelected, '-unpublished': !rule.isActive }">
                 <div class="umb-table-cell">
                     <i class="umb-table-body__icon umb-table-body__fileicon icon-notepad-alt"></i>
+                    <i class="umb-table-body__icon umb-table-body__checkicon icon-check"></i>                    
                 </div>
                 <div class="umb-table-cell umb-table__name">
-                    <a title="{{ rule.contentTypeAlias }}" class="umb-table-body__link" href="" ng-bind="rule.contentTypeAlias">
+                    <a title="{{ rule.contentTypeAlias }}" class="umb-table-body__link" href="" ng-click="openRuleBuilderOverlay(rule); $event.stopPropagation();" ng-bind="rule.contentTypeAlias">
                     </a>
                 </div>
                 <div class="umb-table-cell">
