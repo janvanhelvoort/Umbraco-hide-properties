@@ -3,14 +3,17 @@
 
     <umb-editor-sub-header ng-if="!page.loading && content.rules.length > 0">
         <umb-editor-sub-header-content-left>
-            <umb-editor-sub-header-section>
+            <umb-editor-sub-header-section ng-if="!isAnythingSelected()">
                 <umb-button type="button" label-key="@hideProperties_createRule" action="openRuleBuilderOverlay()" />
+            </umb-editor-sub-header-section>
+            <umb-editor-sub-header-section ng-if="isAnythingSelected()">
+                <umb-button type="button" label="Clear selection" label-key="buttons_clearSelection" action="clearSelection()" disabled="page.loading" />
             </umb-editor-sub-header-section>
         </umb-editor-sub-header-content-left>
 
         <umb-editor-sub-header-content-right>
             <!-- Search -->
-            <umb-editor-sub-header-section>
+            <umb-editor-sub-header-section ng-if="!isAnythingSelected()">
                 <form class="form-search -no-margin-bottom pull-right" novalidate>
                     <div class="inner-addon left-addon">
                         <i class="icon icon-search"></i>
@@ -45,7 +48,7 @@
             <div class="umb-table-row" ng-repeat="rule in content.rules | filter:content.filterTerm" ng-click="selectItem(rule, $event)" ng-class="{'-selected':rule.isSelected, '-unpublished': !rule.isActive }">
                 <div class="umb-table-cell">
                     <i class="umb-table-body__icon umb-table-body__fileicon icon-notepad-alt"></i>
-                    <i class="umb-table-body__icon umb-table-body__checkicon icon-check"></i>                    
+                    <i class="umb-table-body__icon umb-table-body__checkicon icon-check"></i>
                 </div>
                 <div class="umb-table-cell umb-table__name">
                     <a title="{{ rule.contentTypeAlias }}" class="umb-table-body__link" href="" ng-click="openRuleBuilderOverlay(rule); $event.stopPropagation();" ng-bind="rule.contentTypeAlias">
@@ -71,7 +74,9 @@
     </div>
 
     <umb-empty-state ng-if="content.rules.length === 0" position="center">
-        <p><localize key="hideProperties_noRules">Please, create some rules</localize></p>
+        <p>
+            <localize key="hideProperties_noRules">Please, create some rules</localize>
+        </p>
         <umb-button type="button" label-key="@hideProperties_createRule" action="openRuleBuilderOverlay()" />
     </umb-empty-state>
 

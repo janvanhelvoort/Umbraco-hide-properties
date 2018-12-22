@@ -21,6 +21,16 @@
         $event.stopPropagation();
     };
 
+    $scope.clearSelection = function () {
+        angular.forEach($scope.content.rules, function (rule, index) {
+            rule.isSelected = false;
+        });
+    };  
+
+    $scope.isAnythingSelected = function () {
+        return $scope.content.rules.some(function (rule) { return rule.isSelected });
+    };
+
     $scope.isSelectedAll = function () {
         return $scope.content.rules.every(function (rule) { return rule.isSelected });
     };
