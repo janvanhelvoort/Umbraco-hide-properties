@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.SqlClient;
     using System.Linq;
 
     using AutoMapper;
@@ -49,11 +50,16 @@
 
         public Rule Save(Rule rule)
         {
-            var poco = Mapper.Map<Models.Pocos.Rule>(rule);
-
-            poco = RuleRepository.Current.Save(poco);
-
-            return Mapper.Map<Rule>(poco);
+            try
+            {
+                return Mapper.Map<Rule>(
+                    RuleRepository.Current.Save(
+                        Mapper.Map<Models.Pocos.Rule>(rule)));
+            }
+            catch (SqlException)
+            {
+                return null;
+            }
         }
     }
 }
