@@ -31,12 +31,19 @@
         }
 
         [HttpDelete]
-        public HttpResponseMessage Delete(Rule rule)
+        public HttpResponseMessage Delete(int id)
         {
-            rule.IsDeleted = true;
-            return this.UpdateRule(rule) != null ?
-                this.Request.CreateResponse(HttpStatusCode.OK, rule) :
-                this.Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Can't delete rule");
+            var rule = RuleService.Current.GetById(id);
+
+            if (rule != null)
+            {
+                rule.IsDeleted = true;
+                return this.UpdateRule(rule) != null ?
+                    this.Request.CreateResponse(HttpStatusCode.OK, rule) :
+                    this.Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Can't delete rule");
+            }
+
+            return this.Request.CreateErrorResponse(HttpStatusCode.NotFound, "Can't find rule");
         }
 
         private Rule UpdateRule(Rule rule)
