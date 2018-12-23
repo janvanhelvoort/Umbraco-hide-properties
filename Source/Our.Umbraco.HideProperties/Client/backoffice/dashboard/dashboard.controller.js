@@ -52,17 +52,9 @@
         $q.all($scope.content.rules.filter(function (rule) { return rule.isSelected }).map(function (rule) {
             return hidePropertiesResource.deleteRule(rule);
         })).then(function (results) {
-            $scope.isLoading = true;
-
             var removedRules = results.map(function (result) { return result.data.key });
-
-            angular.forEach($scope.content.rules, function (rule, index) {
-                if (removedRules.includes(rule.key)) {
-                    $scope.content.rules.splice(index, 1);
-                }
-            });
-
-            $scope.isLoading = false;
+            $scope.content.rules = $scope.content.rules.filter(function(rule) { return !removedRules.includes(rule.key) });            
+            
             $scope.actionInProgress = false;
         });
     }
