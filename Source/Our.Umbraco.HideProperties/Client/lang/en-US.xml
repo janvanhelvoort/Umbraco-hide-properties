@@ -25,6 +25,7 @@
     <key alias="noUserGroupsSelected">Please, select one or more user groups</key>
 
     <key alias="enableRules">Enable rules</key>
-    <key alias="disableRules">Disable Rules</key>
+    <key alias="disableRules">Disable rules</key>
+    <key alias="deleteRules">Delete rules</key>
   </area>
 </language>

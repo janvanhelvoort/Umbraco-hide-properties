@@ -26,5 +26,6 @@
 
     <key alias="enableRules">Schakel regels in</key>
     <key alias="disableRules">Schakel regels uit</key>
+    <key alias="deleteRules">Verwijder regels</key>
   </area>
 </language>

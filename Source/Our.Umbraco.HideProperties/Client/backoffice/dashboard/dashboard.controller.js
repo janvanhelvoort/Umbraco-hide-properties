@@ -25,7 +25,7 @@
         angular.forEach($scope.content.rules, function (rule, index) {
             rule.isSelected = false;
         });
-    };  
+    };
 
     $scope.isAnythingSelected = function () {
         return $scope.content.rules.some(function (rule) { return rule.isSelected });
@@ -35,13 +35,34 @@
         return $scope.content.rules.every(function (rule) { return rule.isSelected });
     };
 
-    $scope.changeActiveState = function(activeState){
+    $scope.changeActiveState = function (activeState) {
         $scope.actionInProgress = true;
 
-        $q.all($scope.content.rules.filter(function(rule) { return rule.isSelected && rule.isActive != activeState }).map(function(rule){
+        $q.all($scope.content.rules.filter(function (rule) { return rule.isSelected && rule.isActive != activeState }).map(function (rule) {
             rule.isActive = activeState
             return hidePropertiesResource.saveRule(rule);
-        })).then(function() {
+        })).then(function () {
+            $scope.actionInProgress = false;
+        });
+    }
+
+    $scope.deleteRules = function () {
+        $scope.actionInProgress = true;
+
+        $q.all($scope.content.rules.filter(function (rule) { return rule.isSelected }).map(function (rule) {
+            return hidePropertiesResource.deleteRule(rule);
+        })).then(function (results) {
+            $scope.isLoading = true;
+
+            var removedRules = results.map(function (result) { return result.data.key });
+
+            angular.forEach($scope.content.rules, function (rule, index) {
+                if (removedRules.includes(rule.key)) {
+                    $scope.content.rules.splice(index, 1);
+                }
+            });
+
+            $scope.isLoading = false;
             $scope.actionInProgress = false;
         });
     }
