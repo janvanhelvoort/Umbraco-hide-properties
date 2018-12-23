@@ -25,20 +25,30 @@
         [HttpPost]
         public HttpResponseMessage Post(Rule rule)
         {
-            using (var transaction = this.ApplicationContext.DatabaseContext.Database.GetTransaction())
+            return this.UpdateRule(rule) != null ?
+                this.Request.CreateResponse(HttpStatusCode.OK, rule) :
+                this.Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Can't save rule");
+        }
+
+        [HttpDelete]
+        public HttpResponseMessage Delete(Rule rule)
+        {
+            rule.IsDeleted = true;
+            return this.UpdateRule(rule) != null ?
+                this.Request.CreateResponse(HttpStatusCode.OK, rule) :
+                this.Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Can't delete rule");
+        }
+
+        private Rule UpdateRule(Rule rule)
+        {
+            rule = RuleService.Current.Save(rule);
+
+            if (rule != null)
             {
-                rule = RuleService.Current.Save(rule);
-
-                if (rule != null)
-                {
-                    transaction.Complete();
-                    RuleCacheRefresher.ClearCache();
-
-                    return this.Request.CreateResponse(HttpStatusCode.OK, rule);
-                }
-
-                return this.Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Can't save rule");
+                RuleCacheRefresher.ClearCache();
             }
+
+            return rule;
         }
     }
 }
