@@ -92,7 +92,8 @@
                 var urlDictionairy = new Dictionary<string, object>
                 {
                     { "getRules", urlHelper.GetUmbracoApiService<RulesApiController>("Get") },
-                    { "saveRule", urlHelper.GetUmbracoApiService<RulesApiController>("Post") }
+                    { "saveRule", urlHelper.GetUmbracoApiService<RulesApiController>("Post") },
+                    { "deleteRule", urlHelper.GetUmbracoApiService<RulesApiController>("Delete") }
                 };
 
                 e.Add("hideProperties", urlDictionairy);

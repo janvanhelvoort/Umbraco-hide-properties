@@ -6,6 +6,9 @@
         },      
         saveRule: function (rule) {
             return $http.post(Umbraco.Sys.ServerVariables.hideProperties.saveRule, rule);
+        },
+        deleteRule: function(rule){
+            return $http.delete(Umbraco.Sys.ServerVariables.hideProperties.deleteRule, rule);
         }
     };
 };
