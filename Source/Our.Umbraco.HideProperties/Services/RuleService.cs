@@ -31,7 +31,7 @@
         public IEnumerable<Rule> GetRules()
         {
             return this.Rules;
-        }
+        }        
 
         public IEnumerable<Rule> GetRules(string alias)
         {
@@ -46,6 +46,11 @@
         public IEnumerable<Rule> GetActiveRules(IEnumerable<string> aliases)
         {
             return this.Rules.Where(rule => rule.IsActive && aliases.Contains(rule.ContentTypeAlias));
+        }
+
+        public Rule GetById(int id)
+        {
+            return this.Rules.SingleOrDefault(rule => rule.Id.Equals(id));
         }
 
         public Rule Save(Rule rule)
