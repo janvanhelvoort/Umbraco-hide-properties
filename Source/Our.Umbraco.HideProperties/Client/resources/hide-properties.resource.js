@@ -8,7 +8,7 @@
             return $http.post(Umbraco.Sys.ServerVariables.hideProperties.saveRule, rule);
         },
         deleteRule: function(rule){
-            return $http.delete(Umbraco.Sys.ServerVariables.hideProperties.deleteRule, rule);
+            return $http.delete(Umbraco.Sys.ServerVariables.hideProperties.deleteRule + "?id=" + rule.id);
         }
     };
 };
