@@ -34,11 +34,13 @@
     <Compile Include="Attributes\CamelCaseAttribute.cs" />
     <Compile Include="CacheRefresher\RuleCacheRefresher.cs" />
     <Compile Include="Constants\ApplicationConstants.cs" />
+    <Compile Include="Constants\AppSettings.cs" />
     <Compile Include="Constants\CacheRefresherConstants.cs" />
     <Compile Include="Constants\RuntimeCacheConstants.cs" />
     <Compile Include="Constants\TableConstants.cs" />
     <Compile Include="Controllers\ApiControllers\RulesApiController.cs" />
     <Compile Include="EventHandlers\EditorModelEventManagerEventHandler.cs" />
+    <Compile Include="HidePropertiesConfig.cs" />
     <Compile Include="HidePropertiesContext.cs" />
     <Compile Include="Mapping\Profile\RuleProfile.cs" />
     <Compile Include="Migrations\InitialMigration.cs" />
