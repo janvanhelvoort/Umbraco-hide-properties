@@ -18,7 +18,7 @@
 	 <PropertyGroup>
 		<PackageName>Our.Umbraco.HideProperties</PackageName>
 		<MinUmbracoVersion>7.9.0</MinUmbracoVersion>
-		<Readme><![CDATA[After installing this package you will get a hide properties dashboard in the settings section. You can create rules to hide tabs or properties for specific user groups]]></Readme>
+		<Readme><![CDATA[After installing this package you will get a hide properties dashboard in the settings section. You can create rules and manage to hide tabs or properties for specific user groups]]></Readme>
 		<AuthorName>Jan van Helvoort</AuthorName>
 		<AuthorUrl>https://github.com/janvanhelvoort/Umbraco-hide-properties/graphs/contributors</AuthorUrl>
 		<PackageLicenseName>MIT license</PackageLicenseName>
@@ -31,7 +31,7 @@
 		<PackageId>Our.Umbraco.HideProperties</PackageId>		
 		<Copyright>Copyright &#169; Jan van Helvoort and contributors.</Copyright>
 		<Owners>Jan van Helvoort</Owners>
-		<Description>This package makes it possible to create rules inside umbraco to hide tabs or properties for specific user groups</Description>
+		<Description>This package makes it possible to create and manage rules inside umbraco to hide tabs or properties for specific user groups</Description>
 		<IconUrl>https://raw.githubusercontent.com/janvanhelvoort/Umbraco-hide-properties/develop/icon.png</IconUrl>
 		<Tags>umbraco</Tags>
 		<Language>en-GB</Language>
