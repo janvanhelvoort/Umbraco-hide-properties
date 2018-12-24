@@ -94,7 +94,9 @@
                 {
                     { "getRules", urlHelper.GetUmbracoApiService<RulesApiController>("Get") },
                     { "saveRule", urlHelper.GetUmbracoApiService<RulesApiController>("Post") },
-                    { "deleteRule", urlHelper.GetUmbracoApiService<RulesApiController>("Delete") }
+                    { "deleteRule", urlHelper.GetUmbracoApiService<RulesApiController>("Delete") },
+
+                    { "export", urlHelper.GetUmbracoApiService<HidePropertiesApiController>("Export") }
                 };
 
                 e.Add("hideProperties", urlDictionairy);
