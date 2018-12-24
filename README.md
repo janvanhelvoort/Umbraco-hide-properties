@@ -22,7 +22,7 @@ To [install from NuGet](https://www.nuget.org/packages/Our.Umbraco.HidePropertie
 There is also a [MyGet build](https://www.myget.org/feed/janvanhelvoort/package/nuget/Our.Umbraco.HideProperties) - for development branch releases.
 
 #### After installation 
-of this package you will get a hide properties dashboard in the settings section of Umbraco. You can create and manage rules to hide tabs or properties for specific user groups.
+of this package you will get a `hide properties` dashboard in the settings section of Umbraco. You can create and manage rules to hide tabs or properties for specific user groups.
 ![Dashboard](Documentation/Screenshots/Section%20Dashboard.png)
 
 ![Rule Editor](Documentation/Screenshots/Rule%20Editor.png)
