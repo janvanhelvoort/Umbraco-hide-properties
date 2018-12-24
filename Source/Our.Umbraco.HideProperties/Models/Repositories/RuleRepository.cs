@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq.Expressions;
 
     using global::Umbraco.Core;
     using global::Umbraco.Core.Persistence;
@@ -20,7 +21,14 @@
 
         public IEnumerable<Rule> Get()
         {
-            var query = new Sql().Select("*").From(TableConstants.Rules.TableName).Where<Rule>(rule => !rule.IsDeleted, this.SqlSyntax);
+            var query = new Sql().Select("*").From(TableConstants.Rules.TableName);
+
+            return this.Database.Fetch<Rule>(query);
+        }
+
+        public IEnumerable<Rule> GetBy(Expression<Func<Rule, bool>> predicate)
+        {
+            var query = new Sql().Select("*").From(TableConstants.Rules.TableName).Where(predicate, this.SqlSyntax);
 
             return this.Database.Fetch<Rule>(query);
         }

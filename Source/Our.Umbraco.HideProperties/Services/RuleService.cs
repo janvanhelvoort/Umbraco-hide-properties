@@ -23,7 +23,7 @@
             {
                 return (IEnumerable<Rule>)ApplicationContext.Current.ApplicationCache.RuntimeCache.GetCacheItem(RuntimeCacheConstants.RuntimeCacheKeyPrefix, () =>
                 {
-                    return Mapper.Map<IEnumerable<Rule>>(RuleRepository.Current.Get());
+                    return Mapper.Map<IEnumerable<Rule>>(RuleRepository.Current.GetBy(rule => !rule.IsDeleted));
                 }, TimeSpan.FromMinutes(RuntimeCacheConstants.DefaultExpiration), true);
             }
         }
