@@ -19,7 +19,7 @@
         /// </summary>
         private HidePropertiesConfig()
         {
-            this.ExportOnSave = this.GetAppSetting(Constants.AppSettings.ExportOnSave, true);
+            this.ExportOnSave = this.GetAppSetting(Constants.AppSettings.ExportOnSave, false);
             instance = this;
         }
 
