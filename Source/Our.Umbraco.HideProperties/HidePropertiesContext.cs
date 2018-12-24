@@ -1,5 +1,15 @@
 ﻿namespace Our.Umbraco.HideProperties
 {
+    using System;
+    using System.IO;
+
+    using global::Umbraco.Core.IO;
+    using global::Umbraco.Core.Logging;
+
+    using Newtonsoft.Json;
+
+    using Our.Umbraco.HideProperties.Models.Repositories;
+
     /// <summary>
     /// The Hide-properties Context
     /// </summary>
@@ -26,5 +36,32 @@
 
         // Configuration
         public HidePropertiesConfig Configuration { get; set; }
+
+        /// <summary>
+        /// Export Rules
+        /// </summary>
+        public void ExportRules()
+        {
+            try
+            {
+                var rulesFile = IOHelper.MapPath(Path.Combine(SystemDirectories.Config, "hideProperties.rules.js"));
+
+                if (File.Exists(rulesFile))
+                {
+                    File.Delete(rulesFile);
+                }
+
+                using (var file = File.CreateText(rulesFile))
+                {
+                    var serializer = new JsonSerializer { Formatting = Formatting.Indented };
+
+                    serializer.Serialize(file, RuleRepository.Current.Get());
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Warn<Startup>("Unable to save rules to disk: {0}", () => ex.ToString());
+            }
+        }
     }
 }

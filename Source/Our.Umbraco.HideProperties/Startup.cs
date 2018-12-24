@@ -16,6 +16,7 @@
     using global::Umbraco.Web;
     using global::Umbraco.Web.Editors;
     using global::Umbraco.Web.UI.JavaScript;
+
     using Our.Umbraco.HideProperties.CacheRefresher;
     using Our.Umbraco.HideProperties.Constants;
     using Our.Umbraco.HideProperties.Controllers.ApiControllers;
