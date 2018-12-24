@@ -7,4 +7,4 @@ You can export rules from the database to a file, in multiple ways. You can enab
 <add key="hideProperties:ExportOnSave" value="false"/>
 ```
 
-If the setting isn't defined, the default value will be: false. the button to export manually is not visible.
+If the setting isn't defined, the default value will be: false. If the setting is defined and true, the button to export manually is not visible..
