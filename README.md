@@ -1,6 +1,8 @@
 # Umbraco-hide-properties
 
 [![Build status](https://ci.appveyor.com/api/projects/status/be9b1pdyn54rctto?svg=true)](https://ci.appveyor.com/project/JanvanHelvoort/umbraco-hide-properties)
+[![NuGet release](https://img.shields.io/nuget/v/Our.Umbraco.HideProperties.svg)](https://www.nuget.org/packages/Our.Umbraco.HideProperties/)
+[![Our Umbraco project page](https://img.shields.io/badge/our-umbraco-orange.svg)](https://our.umbraco.com/packages/backoffice-extensions/hide-properties//) 
 
 > *Pre-release:* [![MyGet Pre Release](https://img.shields.io/myget/janvanhelvoort/vpre/Our.Umbraco.HideProperties.svg)](https://www.myget.org/feed/janvanhelvoort/package/nuget/Our.Umbraco.HideProperties)
 
