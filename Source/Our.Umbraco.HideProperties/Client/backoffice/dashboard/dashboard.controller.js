@@ -1,4 +1,4 @@
-﻿function DashboardController($scope, $q, localizationService, hidePropertiesResource) {
+﻿function DashboardController($scope, $http, $q, localizationService, hidePropertiesResource) {
     $scope.isLoading = true;
     $scope.content = { rules: [] };
 
@@ -33,6 +33,14 @@
 
     $scope.isSelectedAll = function () {
         return $scope.content.rules.every(function (rule) { return rule.isSelected });
+    };
+
+    $scope.exportRules = function(){
+        $scope.actionInProgress = true;
+
+        $http.get(Umbraco.Sys.ServerVariables.hideProperties.export).then(function(){
+            $scope.actionInProgress = false;
+        });
     };
 
     $scope.changeActiveState = function (activeState) {

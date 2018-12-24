@@ -14,6 +14,8 @@
         <umb-editor-sub-header-content-right>
             <!-- Search -->
             <umb-editor-sub-header-section ng-if="!isAnythingSelected()">
+                <umb-button type="button" button-style="link" label="Export rules" label-key="hideProperties_exportRules" action="exportRules()" icon="icon-box" disabled="actionInProgress" />
+
                 <form class="form-search -no-margin-bottom pull-right" novalidate>
                     <div class="inner-addon left-addon">
                         <i class="icon icon-search"></i>
