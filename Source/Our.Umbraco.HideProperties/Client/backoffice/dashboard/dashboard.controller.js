@@ -2,7 +2,7 @@
     $scope.isLoading = true;
     $scope.content = { rules: [] };
 
-    $scope.exportOnSave = Umbraco.Sys.ServerVariables.hideProperties.exportOnSave;
+    $scope.isExportEnabled = Umbraco.Sys.ServerVariables.hideProperties.isExportEnabled;
 
     hidePropertiesResource.getRules().then(function (result) {
         $scope.content.rules = result.data;

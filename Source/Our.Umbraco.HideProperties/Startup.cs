@@ -97,7 +97,7 @@
                     { "deleteRule", urlHelper.GetUmbracoApiService<RulesApiController>("Delete") },
 
                     { "export", urlHelper.GetUmbracoApiService<HidePropertiesApiController>("Export") },
-                    { "exportOnSave", HidePropertiesContext.Current.Configuration.ExportOnSave }
+                    { "isExportEnabled", HidePropertiesContext.Current.Configuration.IsExportEnabled }
                 };
 
                 e.Add("hideProperties", urlDictionairy);
