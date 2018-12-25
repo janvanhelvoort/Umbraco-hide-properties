@@ -19,6 +19,7 @@
         /// </summary>
         private HidePropertiesConfig()
         {
+            this.IsExportEnabled = this.GetAppSetting(Constants.AppSettings.EnableExport, true);
             this.ExportOnSave = this.GetAppSetting(Constants.AppSettings.ExportOnSave, false);
             instance = this;
         }
@@ -27,6 +28,9 @@
         /// Gets the current context
         /// </summary>
         public static HidePropertiesConfig Current => instance ?? new HidePropertiesConfig();
+
+        // Is export enabled
+        public bool IsExportEnabled { get; set; }
 
         // Export on save
         public bool ExportOnSave { get; set; }
