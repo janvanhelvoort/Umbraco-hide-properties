@@ -16,6 +16,7 @@
     using global::Umbraco.Web;
     using global::Umbraco.Web.Editors;
     using global::Umbraco.Web.UI.JavaScript;
+
     using Our.Umbraco.HideProperties.CacheRefresher;
     using Our.Umbraco.HideProperties.Constants;
     using Our.Umbraco.HideProperties.Controllers.ApiControllers;
@@ -93,7 +94,10 @@
                 {
                     { "getRules", urlHelper.GetUmbracoApiService<RulesApiController>("Get") },
                     { "saveRule", urlHelper.GetUmbracoApiService<RulesApiController>("Post") },
-                    { "deleteRule", urlHelper.GetUmbracoApiService<RulesApiController>("Delete") }
+                    { "deleteRule", urlHelper.GetUmbracoApiService<RulesApiController>("Delete") },
+
+                    { "export", urlHelper.GetUmbracoApiService<HidePropertiesApiController>("Export") },
+                    { "isExportEnabled", HidePropertiesContext.Current.Configuration.IsExportEnabled }
                 };
 
                 e.Add("hideProperties", urlDictionairy);

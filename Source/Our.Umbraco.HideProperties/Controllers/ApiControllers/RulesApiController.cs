@@ -53,6 +53,11 @@
             if (rule != null)
             {
                 RuleCacheRefresher.ClearCache();
+
+                if (HidePropertiesContext.Current.Configuration.IsExportEnabled && HidePropertiesContext.Current.Configuration.ExportOnSave)
+                {
+                    HidePropertiesContext.Current.ExportRules();
+                }
             }
 
             return rule;

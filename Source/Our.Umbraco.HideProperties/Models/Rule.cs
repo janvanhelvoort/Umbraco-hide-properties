@@ -3,6 +3,8 @@
     using System;
     using System.Collections.Generic;
 
+    using Newtonsoft.Json;
+
     public class Rule
     {
         public int Id { get; set; }
@@ -19,6 +21,7 @@
 
         public IEnumerable<string> UserGroups { get; set; }
 
+        [JsonIgnore]
         public bool IsDeleted { get; set; }
     }
 }

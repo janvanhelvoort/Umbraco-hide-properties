@@ -27,5 +27,7 @@
     <key alias="enableRules">Enable rules</key>
     <key alias="disableRules">Disable rules</key>
     <key alias="deleteRules">Delete rules</key>
+
+    <key alias="exportRules">Export rules</key>
   </area>
 </language>
