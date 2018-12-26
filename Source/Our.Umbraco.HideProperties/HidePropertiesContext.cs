@@ -25,7 +25,7 @@
         /// </summary>
         private HidePropertiesContext()
         {
-            this.Configuration = HidePropertiesConfig.Current;            
+            this.Configuration = HidePropertiesConfig.Current;
             instance = this;
         }
 
@@ -44,18 +44,21 @@
         {
             try
             {
-                var rulesFile = IOHelper.MapPath(Path.Combine(SystemDirectories.Config, "hideProperties.rules.js"));
-
-                if (File.Exists(rulesFile))
+                if (this.Configuration.IsExportEnabled)
                 {
-                    File.Delete(rulesFile);
-                }
+                    var rulesFile = IOHelper.MapPath(Path.Combine(SystemDirectories.Config, "hideProperties.rules.js"));
 
-                using (var file = File.CreateText(rulesFile))
-                {
-                    var serializer = new JsonSerializer { Formatting = Formatting.Indented };
+                    if (File.Exists(rulesFile))
+                    {
+                        File.Delete(rulesFile);
+                    }
 
-                    serializer.Serialize(file, RuleRepository.Current.Get());
+                    using (var file = File.CreateText(rulesFile))
+                    {
+                        var serializer = new JsonSerializer { Formatting = Formatting.Indented };
+
+                        serializer.Serialize(file, RuleRepository.Current.Get());
+                    }
                 }
             }
             catch (Exception ex)
@@ -68,7 +71,10 @@
         {
             try
             {
-                throw new NotImplementedException();
+                if (this.Configuration.IsImportEnabled)
+                {
+                    throw new NotImplementedException();
+                }
             }
             catch (Exception ex)
             {
