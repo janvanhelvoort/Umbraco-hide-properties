@@ -15,5 +15,13 @@
 
             return this.Request.CreateResponse(HttpStatusCode.OK);
         }
+
+        [HttpGet]
+        public HttpResponseMessage Import()
+        {
+            HidePropertiesContext.Current.ImportRules();
+
+            return this.Request.CreateResponse(HttpStatusCode.OK);
+        }
     }
 }
