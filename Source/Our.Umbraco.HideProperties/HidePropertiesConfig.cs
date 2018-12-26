@@ -23,6 +23,7 @@
             this.ExportOnSave = this.GetAppSetting(Constants.AppSettings.ExportOnSave, false);
 
             this.IsImportEnabled = this.GetAppSetting(Constants.AppSettings.EnableImport, true);
+            this.ImportAtStartup = this.GetAppSetting(Constants.AppSettings.ImportAtStartup, false);
 
             instance = this;
         }
@@ -40,6 +41,9 @@
 
         // Is import enabled
         public bool IsImportEnabled { get; set; }
+
+        // Import at startup
+        public bool ImportAtStartup { get; set; }
 
         /// <summary>
         /// Gets the value of app setting 

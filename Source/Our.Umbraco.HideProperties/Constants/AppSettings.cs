@@ -19,5 +19,10 @@
         /// Enable import
         /// </summary>
         public const string EnableImport = "hideProperties:EnableImport";
+
+        /// <summary>
+        /// Import at startup
+        /// </summary>
+        public const string ImportAtStartup = "hideProperties:ImportAtStartup";
     }
 }
