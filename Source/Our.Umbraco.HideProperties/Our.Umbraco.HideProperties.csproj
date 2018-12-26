@@ -38,6 +38,7 @@
     <Compile Include="Constants\CacheRefresherConstants.cs" />
     <Compile Include="Constants\RuntimeCacheConstants.cs" />
     <Compile Include="Constants\TableConstants.cs" />
+    <Compile Include="ContractResolver\IgnorableSerializerContractResolver.cs" />
     <Compile Include="Controllers\ApiControllers\HidePropertiesApiController.cs" />
     <Compile Include="Controllers\ApiControllers\RulesApiController.cs" />
     <Compile Include="EventHandlers\EditorModelEventManagerEventHandler.cs" />
