@@ -6,7 +6,7 @@
     internal class AppSettings
     {
         /// <summary>
-        /// Enable Export
+        /// Enable export
         /// </summary>
         public const string EnableExport = "hideProperties:EnableExport";
 
@@ -14,5 +14,10 @@
         /// Export on save
         /// </summary>
         public const string ExportOnSave = "hideProperties:ExportOnSave";
+
+        /// <summary>
+        /// Enable import
+        /// </summary>
+        public const string EnableImport = "hideProperties:EnableImport";
     }
 }
