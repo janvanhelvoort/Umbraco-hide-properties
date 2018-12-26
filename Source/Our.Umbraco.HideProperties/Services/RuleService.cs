@@ -72,10 +72,10 @@
             return this.Rules.Where(rule => rule.IsActive && aliases.Contains(rule.ContentTypeAlias));
         }
 
-        // Get by id
-        public Rule GetById(int id)
+        // Get by key
+        public Rule GetById(Guid key)
         {
-            return this.Rules.SingleOrDefault(rule => rule.Id.Equals(id));
+            return this.Rules.SingleOrDefault(rule => rule.Key.Equals(key));
         }
 
         // Add or update rule

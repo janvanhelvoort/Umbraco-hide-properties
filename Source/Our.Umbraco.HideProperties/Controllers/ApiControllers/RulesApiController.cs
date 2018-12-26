@@ -1,5 +1,6 @@
 ﻿namespace Our.Umbraco.HideProperties.Controllers.ApiControllers
 {
+    using System;
     using System.Net;
     using System.Net.Http;
     using System.Web.Http;
@@ -31,9 +32,9 @@
         }
 
         [HttpDelete]
-        public HttpResponseMessage Delete(int id)
+        public HttpResponseMessage Delete(Guid key)
         {
-            var rule = RuleService.Current.GetById(id);
+            var rule = RuleService.Current.GetById(key);
 
             if (rule != null)
             {
