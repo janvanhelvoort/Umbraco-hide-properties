@@ -63,5 +63,17 @@
                 LogHelper.Warn<Startup>("Unable to save rules to disk: {0}", () => ex.ToString());
             }
         }
+
+        public void ImportRules()
+        {
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Warn<Startup>("Unable to import rules from disk: {0}", () => ex.ToString());
+            }
+        }
     }
 }
