@@ -29,5 +29,6 @@
     <key alias="deleteRules">Verwijder regels</key>
 
     <key alias="exportRules">Exporteer regels</key>
+    <key alias="importRules">Importeer regels</key>
   </area>
 </language>
