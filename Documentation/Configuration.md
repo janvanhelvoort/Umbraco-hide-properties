@@ -39,6 +39,21 @@ If the setting isn't defined, the default value will be: `false`. If the setting
 
 If you want import rules, you can export the rules first, or you create a json file inside the config directory of Umbraco, the name of the file must be `hideProperties.rules.js`.
 
+```json
+[
+  {
+    "Key": "d1481b5f-c1e8-4fb6-aecf-4baba032ce04",
+    "IsActive": true,
+    "ContentTypeAlias": "contentBase",
+    "Tabs": "Settings",
+    "Properties": "pageTitle",
+    "UserGroups": "admin",
+    "IsDeleted": false
+  },
+  ...
+]
+```
+
 You can add the following keys to your appSettings in the web.config.
 
 #### Enable import ####
