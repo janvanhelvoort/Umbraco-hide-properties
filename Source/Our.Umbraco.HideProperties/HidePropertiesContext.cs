@@ -1,6 +1,7 @@
 ﻿namespace Our.Umbraco.HideProperties
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
 
     using global::Umbraco.Core.IO;
@@ -8,6 +9,7 @@
 
     using Newtonsoft.Json;
 
+    using Our.Umbraco.HideProperties.Models.Pocos;
     using Our.Umbraco.HideProperties.Models.Repositories;
 
     /// <summary>
@@ -73,7 +75,24 @@
             {
                 if (this.Configuration.IsImportEnabled)
                 {
-                    throw new NotImplementedException();
+                    var rulesFile = IOHelper.MapPath(Path.Combine(SystemDirectories.Config, "hideProperties.rules.js"));
+
+                    if (File.Exists(rulesFile))
+                    {
+                        var serializer = new JsonSerializer { Formatting = Formatting.Indented };
+
+                        using (var file = new StreamReader(rulesFile))
+                        {
+                            using (var reader = new JsonTextReader(file))
+                            {
+                                var rules = serializer.Deserialize<IEnumerable<Rule>>(reader);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        LogHelper.Warn<Startup>("Unable to import rules from disk: Missing hideProperties.rules.js file");
+                    }                    
                 }
             }
             catch (Exception ex)
