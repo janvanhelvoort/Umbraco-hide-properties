@@ -46,6 +46,14 @@
         });
     };
 
+    $scope.importRules = function(){
+        $scope.actionInProgress = true;
+
+        $http.get(Umbraco.Sys.ServerVariables.hideProperties.import).then(function(){
+            $scope.actionInProgress = false;
+        });
+    };    
+
     $scope.changeActiveState = function (activeState) {
         $scope.actionInProgress = true;
 
