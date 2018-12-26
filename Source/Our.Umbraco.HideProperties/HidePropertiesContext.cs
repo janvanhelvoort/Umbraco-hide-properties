@@ -8,7 +8,7 @@
     using global::Umbraco.Core.Logging;
 
     using Newtonsoft.Json;
-
+    using Our.Umbraco.HideProperties.ContractResolver;
     using Our.Umbraco.HideProperties.Models.Pocos;
     using Our.Umbraco.HideProperties.Models.Repositories;
 
@@ -23,11 +23,20 @@
         private static HidePropertiesContext instance;
 
         /// <summary>
+        /// Custom contract resolver
+        /// </summary>
+        private readonly IgnorableSerializerContractResolver contractResolver;
+
+        /// <summary>
         /// Prevents a default instance of the <see cref="HidePropertiesContext"/> class from being created.
         /// </summary>
         private HidePropertiesContext()
         {
             this.Configuration = HidePropertiesConfig.Current;
+
+            // Ignore rule.id
+            this.contractResolver = new IgnorableSerializerContractResolver().Ignore<Rule>(rule => rule.Id);
+
             instance = this;
         }
 
@@ -57,7 +66,7 @@
 
                     using (var file = File.CreateText(rulesFile))
                     {
-                        var serializer = new JsonSerializer { Formatting = Formatting.Indented };
+                        var serializer = new JsonSerializer { Formatting = Formatting.Indented, ContractResolver = this.contractResolver };
 
                         serializer.Serialize(file, RuleRepository.Current.Get());
                     }
@@ -79,7 +88,7 @@
 
                     if (File.Exists(rulesFile))
                     {
-                        var serializer = new JsonSerializer { Formatting = Formatting.Indented };
+                        var serializer = new JsonSerializer { Formatting = Formatting.Indented, ContractResolver = this.contractResolver };
 
                         using (var file = new StreamReader(rulesFile))
                         {
@@ -92,7 +101,7 @@
                     else
                     {
                         LogHelper.Warn<Startup>("Unable to import rules from disk: Missing hideProperties.rules.js file");
-                    }                    
+                    }
                 }
             }
             catch (Exception ex)
