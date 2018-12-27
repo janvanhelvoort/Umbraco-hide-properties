@@ -14,7 +14,7 @@ This package includes dutch and english translations. A translation can easily b
 
 ## Documentation ##
 
-The documentation for this package can be found [here](documentation/readme.md)
+The documentation for this package can be found [here](Documentation/README.md)
 
 ### Installation
 
