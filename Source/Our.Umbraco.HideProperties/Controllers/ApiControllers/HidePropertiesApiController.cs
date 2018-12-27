@@ -6,12 +6,24 @@
 
     using global::Umbraco.Web.Editors;
 
+    using Our.Umbraco.HideProperties.CacheRefresher;
+
     public class HidePropertiesApiController : UmbracoAuthorizedJsonController
     {
         [HttpGet]
         public HttpResponseMessage Export()
         {
             HidePropertiesContext.Current.ExportRules();
+
+            return this.Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+        [HttpGet]
+        public HttpResponseMessage Import()
+        {
+            HidePropertiesContext.Current.ImportRules();
+
+            RuleCacheRefresher.ClearCache();
 
             return this.Request.CreateResponse(HttpStatusCode.OK);
         }
