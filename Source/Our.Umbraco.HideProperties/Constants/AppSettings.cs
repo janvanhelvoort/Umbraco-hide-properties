@@ -24,5 +24,15 @@
         /// Import at startup
         /// </summary>
         public const string ImportAtStartup = "hideProperties:ImportAtStartup";
+
+        /// <summary>
+        /// Update rule at import
+        /// </summary>
+        public const string UpdateRuleAtImport = "hideProperties:UpdateRuleAtImport";
+
+        /// <summary>
+        /// Delete rule at import
+        /// </summary>
+        public const string DeleteRuleAtImport = "hideProperties:DeleteRuleAtImport";
     }
 }

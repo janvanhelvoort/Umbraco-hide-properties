@@ -24,6 +24,8 @@
 
             this.IsImportEnabled = this.GetAppSetting(Constants.AppSettings.EnableImport, true);
             this.ImportAtStartup = this.GetAppSetting(Constants.AppSettings.ImportAtStartup, false);
+            this.UpdateRuleAtImport = this.GetAppSetting(Constants.AppSettings.UpdateRuleAtImport, false);
+            this.DeleteRuleAtImport = this.GetAppSetting(Constants.AppSettings.DeleteRuleAtImport, true);
 
             instance = this;
         }
@@ -44,6 +46,12 @@
 
         // Import at startup
         public bool ImportAtStartup { get; set; }
+
+        // Update rule at import
+        public bool UpdateRuleAtImport { get; set; }
+
+        // Delete rule at import
+        public bool DeleteRuleAtImport { get; set; }
 
         /// <summary>
         /// Gets the value of app setting 
