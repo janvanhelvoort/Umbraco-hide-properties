@@ -37,11 +37,21 @@
 
                 Mapper.AddProfile<RuleProfile>();
 
-                EditorModelEventManager.SendingContentModel += EditorModelEventManagerEventHandler.SendingContentModel;                
+                EditorModelEventManager.SendingContentModel += EditorModelEventManagerEventHandler.SendingContentModel;
 
                 CacheRefresherBase<RuleCacheRefresher>.CacheUpdated += this.CacheUpdated;
 
                 ServerVariablesParser.Parsing += this.ServerVariablesParserParsing;
+            }
+
+            if (HidePropertiesContext.Current.Configuration.IsImportEnabled && HidePropertiesContext.Current.Configuration.ImportAtStartup)
+            {
+                using (ApplicationContext.Current.ProfilingLogger.TraceDuration<Startup>("Begin import rules", "End import rules"))
+                {
+                    HidePropertiesContext.Current.ImportRules();
+
+                    RuleCacheRefresher.ClearCache();
+                }
             }
         }
 
@@ -97,7 +107,10 @@
                     { "deleteRule", urlHelper.GetUmbracoApiService<RulesApiController>("Delete") },
 
                     { "export", urlHelper.GetUmbracoApiService<HidePropertiesApiController>("Export") },
-                    { "isExportEnabled", HidePropertiesContext.Current.Configuration.IsExportEnabled }
+                    { "import", urlHelper.GetUmbracoApiService<HidePropertiesApiController>("Import") },
+
+                    { "isExportEnabled", HidePropertiesContext.Current.Configuration.IsExportEnabled },
+                    { "isImportEnabled", HidePropertiesContext.Current.Configuration.IsImportEnabled }
                 };
 
                 e.Add("hideProperties", urlDictionairy);

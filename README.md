@@ -12,6 +12,10 @@ This package makes it possible to create rules inside umbraco to hide tabs or pr
 
 This package includes dutch and english translations. A translation can easily be added with xml files. [Languages](Source/Our.Umbraco.HideProperties/Client/lang/)
 
+## Documentation ##
+
+The documentation for this package can be found [here](Documentation/README.md)
+
 ### Installation
 
 > *Note:* This package has been developed for **Umbraco v7.9.0** and will support that version and above.

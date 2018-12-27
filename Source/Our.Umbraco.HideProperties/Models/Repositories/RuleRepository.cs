@@ -33,6 +33,23 @@
             return this.Database.Fetch<Rule>(query);
         }
 
+        public Rule GetSingleBy(Expression<Func<Rule, bool>> predicate)
+        {
+            var query = new Sql().Select("*").From(TableConstants.Rules.TableName).Where(predicate, this.SqlSyntax);
+
+            return this.Database.SingleOrDefault<Rule>(query);
+        }
+
+        public Rule Add(Rule rule)
+        {
+            if (rule != null)
+            {
+                this.Database.Save(rule);
+            }
+
+            return rule;
+        }
+
         public Rule Save(Rule rule)
         {
             if (rule != null)

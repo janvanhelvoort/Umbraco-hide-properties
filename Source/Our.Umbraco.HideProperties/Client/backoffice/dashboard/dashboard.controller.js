@@ -3,11 +3,16 @@
     $scope.content = { rules: [] };
 
     $scope.isExportEnabled = Umbraco.Sys.ServerVariables.hideProperties.isExportEnabled;
+    $scope.isImportEnabled = Umbraco.Sys.ServerVariables.hideProperties.isImportEnabled;
 
-    hidePropertiesResource.getRules().then(function (result) {
-        $scope.content.rules = result.data;
-        $scope.isLoading = false;
-    });
+    var getRules = function(){
+        $scope.isLoading = true;
+
+        hidePropertiesResource.getRules().then(function (result) {
+            $scope.content.rules = result.data;
+            $scope.isLoading = false;
+        });
+    }
 
     $scope.selectItem = function (rule, $event) {
         rule.isSelected = !rule.isSelected;
@@ -44,6 +49,16 @@
             $scope.actionInProgress = false;
         });
     };
+
+    $scope.importRules = function(){
+        $scope.actionInProgress = true;
+
+        $http.get(Umbraco.Sys.ServerVariables.hideProperties.import).then(function(){
+            $scope.actionInProgress = false;
+
+            getRules();
+        });
+    };    
 
     $scope.changeActiveState = function (activeState) {
         $scope.actionInProgress = true;
@@ -98,6 +113,8 @@
             }
         };
     };
+
+    getRules();
 }
 
 angular.module("umbraco").controller("HideProperties.DashboardController", DashboardController);
