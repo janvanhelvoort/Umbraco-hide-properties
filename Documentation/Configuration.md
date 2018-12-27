@@ -75,3 +75,23 @@ You can enable import at startup, this will save rules that don't exist in the d
 ```
 
 If the setting isn't defined, the default value will be: `false`. If the setting `Enable import` is false, this rule does nothing.
+
+#### Update rule at import ####
+
+The rule with the same key will be overwritten with the one from the file. If `IsDeleted` is true, the rule will be updated and deleted.
+
+```xml
+<add key="hideProperties:UpdateRuleAtImport" value="false"/>
+```
+
+If the setting isn't defined, the default value will be: `false`. If the setting `Enable import` is false, this rule does nothing.
+
+#### Delete rule at import ####
+
+The rule with the same key will be deleted.
+
+```xml
+<add key="hideProperties:DeleteRuleAtImport" value="true"/>
+```
+
+If the setting isn't defined, the default value will be: `true`. If the setting `Enable import` is false, this rule does nothing.
