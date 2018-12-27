@@ -106,17 +106,19 @@
                                         {
                                             if (this.Configuration.UpdateRuleAtImport)
                                             {
-                                                rule.Id = existingRule.Id;                                                
+                                                rule.Id = existingRule.Id;
+
+                                                RuleRepository.Current.Save(rule);
                                             }
                                             else
                                             {
                                                 if (this.Configuration.DeleteRuleAtImport && rule.IsDeleted)
                                                 {
-                                                    existingRule.IsDeleted = true;                                                    
+                                                    existingRule.IsDeleted = true;
+
+                                                    RuleRepository.Current.Save(existingRule);
                                                 }
                                             }
-
-                                            RuleRepository.Current.Save(existingRule);
                                         }
                                         else
                                         {
@@ -124,7 +126,7 @@
                                         }
                                     }
 
-                                    transaction.Complete();                                    
+                                    transaction.Complete();
                                 }
                             }
                         }
