@@ -30,8 +30,13 @@ There is also a [MyGet build](https://www.myget.org/feed/janvanhelvoort/package/
 #### After installation 
 of this package you will get a `hide properties` dashboard in the settings section of Umbraco. You can create and manage rules to hide tabs or properties for specific user groups.
 ![Dashboard](Documentation/Screenshots/Section%20Dashboard.png)
+*Dashboard - Create, Import and export rules*
+
+![Dashboard, Rule selected](Documentation/Screenshots/Section%20Dashboard%20Selected.png)
+*Dashboard selected - Enable / disable and delete rules*
 
 ![Rule Editor](Documentation/Screenshots/Rule%20Editor.png)
+*Editor - Change and update selected rule*
 
 ## License
 Licensed under the [MIT License](LICENSE.md)
