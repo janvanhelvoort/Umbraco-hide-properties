@@ -58,7 +58,7 @@ You can add the following keys to your appSettings in the web.config.
 
 #### Enable import ####
 
-You can enable import of rules, if enabled, this will display a import button in the dashbaord. 
+You can enable import of rules, if enabled, this will display a import button in the dashbaord. This will save rules that don't exist in the database, it will compare the guid `key` property. You can change the options to update or delete of existing rules.
 
 ```xml
 <add key="ideProperties:EnableImport" value="true"/>
@@ -66,9 +66,9 @@ You can enable import of rules, if enabled, this will display a import button in
 
 If the setting isn't defined, the default value will be: `true`.
 
-#### Export on save ####
+#### Import as startup ####
 
-You can enable import at startup, this will save rules that don't exist in the database, it will compare the guid `key` property. It won't update rules, except, if the property `IsDeleted` of the rule is true. 
+You can enable import at startup, this will import the rules when the application is started.
 
 ```xml
 <add key="hideProperties:ImportAtStartup" value="false"/>
