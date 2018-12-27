@@ -95,6 +95,25 @@
                             using (var reader = new JsonTextReader(file))
                             {
                                 var rules = serializer.Deserialize<IEnumerable<Rule>>(reader);
+
+                                using (var transaction = RuleRepository.Current.Database.GetTransaction())
+                                {
+                                    foreach (var rule in rules)
+                                    {
+                                        var existingRule = RuleRepository.Current.GetSingleBy(x => x.Key.Equals(rule.Key));
+
+                                        if (existingRule != null)
+                                        {
+
+                                        }
+                                        else
+                                        {
+                                            RuleRepository.Current.Add(rule);
+                                        }
+                                    }
+
+                                    transaction.Complete();                                    
+                                }
                             }
                         }
                     }
