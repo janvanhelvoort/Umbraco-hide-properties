@@ -5,10 +5,14 @@
     $scope.isExportEnabled = Umbraco.Sys.ServerVariables.hideProperties.isExportEnabled;
     $scope.isImportEnabled = Umbraco.Sys.ServerVariables.hideProperties.isImportEnabled;
 
-    hidePropertiesResource.getRules().then(function (result) {
-        $scope.content.rules = result.data;
-        $scope.isLoading = false;
-    });
+    var getRules = function(){
+        $scope.isLoading = true;
+
+        hidePropertiesResource.getRules().then(function (result) {
+            $scope.content.rules = result.data;
+            $scope.isLoading = false;
+        });
+    }
 
     $scope.selectItem = function (rule, $event) {
         rule.isSelected = !rule.isSelected;
@@ -51,6 +55,8 @@
 
         $http.get(Umbraco.Sys.ServerVariables.hideProperties.import).then(function(){
             $scope.actionInProgress = false;
+
+            getRules();
         });
     };    
 
@@ -107,6 +113,8 @@
             }
         };
     };
+
+    getRules();
 }
 
 angular.module("umbraco").controller("HideProperties.DashboardController", DashboardController);
