@@ -33,6 +33,16 @@
             return this.Database.Fetch<Rule>(query);
         }
 
+        public Rule Add(Rule rule)
+        {
+            if (rule != null)
+            {
+                this.Database.Save(rule);
+            }
+
+            return rule;
+        }
+
         public Rule Save(Rule rule)
         {
             if (rule != null)
