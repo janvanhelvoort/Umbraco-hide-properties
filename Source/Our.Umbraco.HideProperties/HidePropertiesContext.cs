@@ -104,7 +104,19 @@
 
                                         if (existingRule != null)
                                         {
+                                            if (this.Configuration.UpdateRuleAtImport)
+                                            {
+                                                rule.Id = existingRule.Id;                                                
+                                            }
+                                            else
+                                            {
+                                                if (this.Configuration.DeleteRuleAtImport && rule.IsDeleted)
+                                                {
+                                                    existingRule.IsDeleted = true;                                                    
+                                                }
+                                            }
 
+                                            RuleRepository.Current.Save(existingRule);
                                         }
                                         else
                                         {
