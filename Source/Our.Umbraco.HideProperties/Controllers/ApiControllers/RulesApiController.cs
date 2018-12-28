@@ -55,7 +55,7 @@
             {
                 RuleCacheRefresher.ClearCache();
 
-                if (HidePropertiesContext.Current.Configuration.IsExportEnabled && HidePropertiesContext.Current.Configuration.ExportOnSave)
+                if (HidePropertiesContext.Current.Configuration.EnableExport && HidePropertiesContext.Current.Configuration.ExportOnSave)
                 {
                     HidePropertiesContext.Current.ExportRules();
                 }

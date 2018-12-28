@@ -16,7 +16,7 @@
     /// <summary>
     /// The rule server
     /// </summary>
-    public class RuleService
+    internal class RuleService
     {
         /// <summary>
         /// The current instance.

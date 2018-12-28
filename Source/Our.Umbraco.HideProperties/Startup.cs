@@ -25,7 +25,7 @@
 
     using Semver;
 
-    public class Startup : ApplicationEventHandler
+    internal class Startup : ApplicationEventHandler
     {
         protected override void ApplicationStarted(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
         {
@@ -44,7 +44,7 @@
                 ServerVariablesParser.Parsing += this.ServerVariablesParserParsing;
             }
 
-            if (HidePropertiesContext.Current.Configuration.IsImportEnabled && HidePropertiesContext.Current.Configuration.ImportAtStartup)
+            if (HidePropertiesContext.Current.Configuration.EnableImport && HidePropertiesContext.Current.Configuration.ImportAtStartup)
             {
                 using (ApplicationContext.Current.ProfilingLogger.TraceDuration<Startup>("Begin import rules", "End import rules"))
                 {
@@ -109,8 +109,8 @@
                     { "export", urlHelper.GetUmbracoApiService<HidePropertiesApiController>("Export") },
                     { "import", urlHelper.GetUmbracoApiService<HidePropertiesApiController>("Import") },
 
-                    { "isExportEnabled", HidePropertiesContext.Current.Configuration.IsExportEnabled },
-                    { "isImportEnabled", HidePropertiesContext.Current.Configuration.IsImportEnabled }
+                    { "showExportButton", HidePropertiesContext.Current.Configuration.EnableExport && HidePropertiesContext.Current.Configuration.ShowExportButton },
+                    { "showImportButton", HidePropertiesContext.Current.Configuration.EnableImport && HidePropertiesContext.Current.Configuration.ShowImportButton }
                 };
 
                 e.Add("hideProperties", urlDictionairy);

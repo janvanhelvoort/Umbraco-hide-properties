@@ -2,8 +2,8 @@
     $scope.isLoading = true;
     $scope.content = { rules: [] };
 
-    $scope.isExportEnabled = Umbraco.Sys.ServerVariables.hideProperties.isExportEnabled;
-    $scope.isImportEnabled = Umbraco.Sys.ServerVariables.hideProperties.isImportEnabled;
+    $scope.showExportButton = Umbraco.Sys.ServerVariables.hideProperties.showExportButton;
+    $scope.showImportButton = Umbraco.Sys.ServerVariables.hideProperties.showImportButton;
 
     var getRules = function(){
         $scope.isLoading = true;
