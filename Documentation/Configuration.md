@@ -17,13 +17,23 @@ You can add the following keys to your appSettings in the web.config.
 
 #### Enable export ####
 
-You can enable export of rules, if enabled, this will display a export button in the dashbaord. 
+You can enable export of rules, if `Enable Export` and [`Show export button`](#show-export-button) are enabled, this will display a export button in the dashbaord. 
 
 ```xml
 <add key="hideProperties:EnableExport" value="true"/>
 ```
 
 If the setting isn't defined, the default value will be: `true`.
+
+#### Show export button ####
+
+You can hide or show the export button, if enabled, this will display a export button in the dashbaord. 
+
+```xml
+<add key="hideProperties:showExportButton" value="true"/>
+```
+
+If the setting isn't defined, the default value will be: `true`. If the setting `Enable export` is false, the value will be `false`.
 
 #### Export on save ####
 
@@ -62,13 +72,23 @@ You can add the following keys to your appSettings in the web.config.
 
 #### Enable import ####
 
-You can enable import of rules, if enabled, this will display a import button in the dashbaord. This will save rules that don't exist in the database, it will compare the guid `key` property. You can change the options to update or delete of existing rules.
+You can enable import of rules, if `Enable import` and [`Show import button`](#show-import-button) are enabled, this will display a import button in the dashbaord. This will save rules that don't exist in the database, it will compare the guid `key` property. You can change the options to update or delete of existing rules.
 
 ```xml
 <add key="ideProperties:EnableImport" value="true"/>
 ```
 
 If the setting isn't defined, the default value will be: `true`.
+
+#### Show import button ####
+
+You can hide or show the import button, if enabled, this will display a import button in the dashbaord. 
+
+```xml
+<add key="hideProperties:showImportButton" value="true"/>
+```
+
+If the setting isn't defined, the default value will be: `true`. If the setting `Enable import` is false, the value will be `false`.
 
 #### Import as startup ####
 
