@@ -55,7 +55,7 @@
         {
             try
             {
-                if (this.Configuration.IsExportEnabled)
+                if (this.Configuration.EnableExport)
                 {
                     var rulesFile = IOHelper.MapPath(Path.Combine(SystemDirectories.Config, "hideProperties.rules.js"));
 
@@ -82,7 +82,7 @@
         {
             try
             {
-                if (this.Configuration.IsImportEnabled)
+                if (this.Configuration.EnableImport)
                 {
                     var rulesFile = IOHelper.MapPath(Path.Combine(SystemDirectories.Config, "hideProperties.rules.js"));
 

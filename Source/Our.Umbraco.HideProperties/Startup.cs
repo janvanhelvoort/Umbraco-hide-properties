@@ -44,7 +44,7 @@
                 ServerVariablesParser.Parsing += this.ServerVariablesParserParsing;
             }
 
-            if (HidePropertiesContext.Current.Configuration.IsImportEnabled && HidePropertiesContext.Current.Configuration.ImportAtStartup)
+            if (HidePropertiesContext.Current.Configuration.EnableImport && HidePropertiesContext.Current.Configuration.ImportAtStartup)
             {
                 using (ApplicationContext.Current.ProfilingLogger.TraceDuration<Startup>("Begin import rules", "End import rules"))
                 {

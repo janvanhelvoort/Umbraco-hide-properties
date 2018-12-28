@@ -19,10 +19,10 @@
         /// </summary>
         private HidePropertiesConfig()
         {
-            this.IsExportEnabled = this.GetAppSetting(Constants.AppSettings.EnableExport, true);
+            this.EnableExport = this.GetAppSetting(Constants.AppSettings.EnableExport, true);
             this.ExportOnSave = this.GetAppSetting(Constants.AppSettings.ExportOnSave, false);
 
-            this.IsImportEnabled = this.GetAppSetting(Constants.AppSettings.EnableImport, true);
+            this.EnableImport = this.GetAppSetting(Constants.AppSettings.EnableImport, true);
             this.ImportAtStartup = this.GetAppSetting(Constants.AppSettings.ImportAtStartup, false);
             this.UpdateRuleAtImport = this.GetAppSetting(Constants.AppSettings.UpdateRuleAtImport, false);
             this.DeleteRuleAtImport = this.GetAppSetting(Constants.AppSettings.DeleteRuleAtImport, true);
@@ -35,14 +35,14 @@
         /// </summary>
         public static HidePropertiesConfig Current => instance ?? new HidePropertiesConfig();
 
-        // Is export enabled
-        public bool IsExportEnabled { get; set; }
+        // Enable export
+        public bool EnableExport { get; set; }
 
         // Export on save
         public bool ExportOnSave { get; set; }
 
-        // Is import enabled
-        public bool IsImportEnabled { get; set; }
+        // Enable import
+        public bool EnableImport { get; set; }
 
         // Import at startup
         public bool ImportAtStartup { get; set; }
