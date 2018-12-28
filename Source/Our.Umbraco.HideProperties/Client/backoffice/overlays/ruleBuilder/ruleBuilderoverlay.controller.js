@@ -3,51 +3,54 @@
     $scope.isLoading = true;
     $scope.content = { selectedContentType: undefined, selectedTabs: [], selectedProperties: [], selectedUserGroups: [] };
 
-    contentTypeResource.getAll().then((contentTypes) => {
-        $scope.contentTypes = contentTypes;
+    contentTypeResource.getAll().then((contentTypes) => {        
         $scope.isLoading = false;
 
-        if ($scope.model.initialRule) {
-            var initialRule = $scope.model.initialRule;
+        if ($scope.model) {
+            $scope.contentTypes = contentTypes;
 
-            $scope.model.rule = angular.copy(initialRule);
+            if ($scope.model.initialRule) {
+                var initialRule = $scope.model.initialRule;
 
-            var contentType = $scope.contentTypes.find(function (contentType) {
-                return contentType.alias === initialRule.contentTypeAlias;
-            });
+                $scope.model.rule = angular.copy(initialRule);
 
-            if (contentType) {
-                contentTypeResource.getById(contentType.id).then(function (contentType) {
-                    $scope.content.selectedContentType = contentType;
-
-                    $scope.content.selectedTabs = contentType.groups.filter(function (group) {
-                        return initialRule.tabs.includes(group.name);
-                    });
-
-                    var properties = contentType.groups.reduce(function (accumulator, currentValue) {
-                        return accumulator.concat(currentValue.properties);
-                    }, []);
-
-                    $scope.content.selectedProperties = properties.filter(function (property) {
-                        return initialRule.properties.includes(property.alias);
-                    });
+                var contentType = $scope.contentTypes.find(function (contentType) {
+                    return contentType.alias === initialRule.contentTypeAlias;
                 });
 
-                userGroupsResource.getUserGroups({ onlyCurrentUserGroups: false }).then((userGroups) => {
-                    $scope.content.selectedUserGroups = userGroups.filter(function (userGroup) {
-                        return initialRule.userGroups.includes(userGroup.alias);
-                    });
-                });
+                if (contentType) {
+                    contentTypeResource.getById(contentType.id).then(function (contentType) {
+                        $scope.content.selectedContentType = contentType;
 
-                $scope.ruleBuilderForm.selectedContentType.$setValidity("selectedContentType", true)
-                $scope.ruleBuilderForm.selectedUserGroups.$setValidity("selectedUserGroups", initialRule.userGroups.length > 0);
-                $scope.ruleBuilderForm.selectedTabsOrProperties.$setValidity("selectedTabsOrProperties", initialRule.tabs.length > 0 || initialRule.properties.length > 0);                
+                        $scope.content.selectedTabs = contentType.groups.filter(function (group) {
+                            return initialRule.tabs.includes(group.name);
+                        });
+
+                        var properties = contentType.groups.reduce(function (accumulator, currentValue) {
+                            return accumulator.concat(currentValue.properties);
+                        }, []);
+
+                        $scope.content.selectedProperties = properties.filter(function (property) {
+                            return initialRule.properties.includes(property.alias);
+                        });
+                    });
+
+                    userGroupsResource.getUserGroups({ onlyCurrentUserGroups: false }).then((userGroups) => {
+                        $scope.content.selectedUserGroups = userGroups.filter(function (userGroup) {
+                            return initialRule.userGroups.includes(userGroup.alias);
+                        });
+                    });
+
+                    $scope.ruleBuilderForm.selectedContentType.$setValidity("selectedContentType", true)
+                    $scope.ruleBuilderForm.selectedUserGroups.$setValidity("selectedUserGroups", initialRule.userGroups.length > 0);
+                    $scope.ruleBuilderForm.selectedTabsOrProperties.$setValidity("selectedTabsOrProperties", initialRule.tabs.length > 0 || initialRule.properties.length > 0);
+                } else {
+                    $scope.ruleBuilderForm.selectedContentType.$setValidity("selectedContentType", false);
+                }
             } else {
+                $scope.model.rule = { isActive: true, tabs: [], properties: [], userGroups: [] };
                 $scope.ruleBuilderForm.selectedContentType.$setValidity("selectedContentType", false);
             }
-        } else {
-            $scope.model.rule = { isActive: true, tabs: [], properties: [], userGroups: [] };
-            $scope.ruleBuilderForm.selectedContentType.$setValidity("selectedContentType", false);
         }
     });
 
