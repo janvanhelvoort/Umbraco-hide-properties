@@ -11,6 +11,8 @@
 
 If you export rules, the rules will be saved inside the config directory of Umbraco in the file: `hideProperties.rules.js`.
 
+Path: `~/config/hideProperties.rules.js`.
+
 You can add the following keys to your appSettings in the web.config.
 
 #### Enable export ####
@@ -38,6 +40,8 @@ If the setting isn't defined, the default value will be: `false`. If the setting
 ### Import ###
 
 If you want import rules, you can export the rules first, or you create a json file inside the config directory of Umbraco, the name of the file must be `hideProperties.rules.js`.
+
+Path: `~/config/hideProperties.rules.js`.
 
 ```json
 [
