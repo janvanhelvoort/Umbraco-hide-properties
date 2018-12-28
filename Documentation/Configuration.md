@@ -46,12 +46,12 @@ Path: `~/config/hideProperties.rules.js`.
 ```json
 [
   {
-    "Key": "d1481b5f-c1e8-4fb6-aecf-4baba032ce04",
+    "Key": "cc334a40-5818-47ba-9112-a5dd3f8ca5da",
     "IsActive": true,
-    "ContentTypeAlias": "contentBase",
+    "ContentTypeAlias": "blog",
     "Tabs": "Settings",
-    "Properties": "pageTitle",
-    "UserGroups": "admin",
+    "Properties": "bodyText,pageTitle",
+    "UserGroups": "sensitiveData,translator",
     "IsDeleted": false
   },
   ...
