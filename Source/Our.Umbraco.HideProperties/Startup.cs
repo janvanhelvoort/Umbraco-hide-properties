@@ -25,7 +25,7 @@
 
     using Semver;
 
-    public class Startup : ApplicationEventHandler
+    internal class Startup : ApplicationEventHandler
     {
         protected override void ApplicationStarted(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
         {

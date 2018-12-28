@@ -8,7 +8,7 @@
 
     [TableName(TableConstants.Rules.TableName)]
 
-    public class Rule
+    internal class Rule
     {
         public int Id { get; set; }
 

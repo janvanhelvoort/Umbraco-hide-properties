@@ -12,7 +12,7 @@
     using Our.Umbraco.HideProperties.Models;
     using Our.Umbraco.HideProperties.Services;
 
-    public static class EditorModelEventManagerEventHandler
+    internal static class EditorModelEventManagerEventHandler
     {
         public static void SendingContentModel(HttpActionExecutedContext sender, EditorModelEventArgs<ContentItemDisplay> e)
         {
