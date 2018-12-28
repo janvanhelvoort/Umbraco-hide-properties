@@ -109,8 +109,8 @@
                     { "export", urlHelper.GetUmbracoApiService<HidePropertiesApiController>("Export") },
                     { "import", urlHelper.GetUmbracoApiService<HidePropertiesApiController>("Import") },
 
-                    { "isExportEnabled", HidePropertiesContext.Current.Configuration.IsExportEnabled },
-                    { "isImportEnabled", HidePropertiesContext.Current.Configuration.IsImportEnabled }
+                    { "showExportButton", HidePropertiesContext.Current.Configuration.EnableExport && HidePropertiesContext.Current.Configuration.ShowExportButton },
+                    { "showImportButton", HidePropertiesContext.Current.Configuration.EnableImport && HidePropertiesContext.Current.Configuration.ShowImportButton }
                 };
 
                 e.Add("hideProperties", urlDictionairy);
