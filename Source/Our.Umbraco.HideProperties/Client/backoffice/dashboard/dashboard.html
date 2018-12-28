@@ -4,10 +4,10 @@
     <umb-editor-sub-header ng-if="!isLoading && content.rules.length > 0">
         <umb-editor-sub-header-content-left>
             <umb-editor-sub-header-section ng-if="!isAnythingSelected()">
-                <umb-button type="button" label-key="@hideProperties_createRule" action="openRuleBuilderOverlay()" />
+                <umb-button type="button" label-key="@hideProperties_createRule" action="openRuleBuilderOverlay()" disabled="actionInProgress" />
             </umb-editor-sub-header-section>
             <umb-editor-sub-header-section ng-if="isAnythingSelected()">
-                <umb-button type="button" label="Clear selection" label-key="buttons_clearSelection" action="clearSelection()" disabled="isLoading" />
+                <umb-button type="button" label="Clear selection" label-key="buttons_clearSelection" action="clearSelection()" disabled="actionInProgress" />
             </umb-editor-sub-header-section>
         </umb-editor-sub-header-content-left>
 
