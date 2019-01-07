@@ -243,8 +243,8 @@
     <Content Include="Client\backoffice\overlays\propertyPicker\propertyPicker.overlay.controller.js" />
     <Content Include="Client\backoffice\overlays\propertyPicker\propertyPicker.overlay.html" />
     <Content Include="Client\backoffice\overlays\ruleBuilder\ruleBuilder.overlay.html" />
-    <Content Include="Client\backoffice\overlays\ruleBuilder\ruleBuilderoverlay.controller.js" />
-    <Content Include="Client\backoffice\overlays\tabPicker\tabPicker.controller.js" />
+    <Content Include="Client\backoffice\overlays\ruleBuilder\ruleBuilder.overlay.controller.js" />
+    <Content Include="Client\backoffice\overlays\tabPicker\tabPicker.overlay.controller.js" />
     <Content Include="Client\backoffice\overlays\tabPicker\tabPicker.overlay.html" />
     <Content Include="Client\lang\en-US.xml" />
     <Content Include="Client\lang\nl-NL.xml" />
