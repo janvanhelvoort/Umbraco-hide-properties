@@ -15,8 +15,6 @@
     [CamelCase]
     public class RulesApiController : UmbracoAuthorizedJsonController
     {
-        public object QuestionRepository { get; private set; }
-
         [HttpGet]
         public HttpResponseMessage Get()
         {

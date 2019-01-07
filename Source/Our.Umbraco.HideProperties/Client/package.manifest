@@ -4,8 +4,8 @@
 
 		'~/App_Plugins/Umbraco-hide-properties/backoffice/dashboard/dashboard.controller.js',
 		
-		'~/App_Plugins/Umbraco-hide-properties/backoffice/overlays/ruleBuilder/ruleBuilderoverlay.controller.js',
-		'~/App_Plugins/Umbraco-hide-properties/backoffice/overlays/tabPicker/tabPicker.controller.js',
+		'~/App_Plugins/Umbraco-hide-properties/backoffice/overlays/ruleBuilder/ruleBuilder.overlay.controller.js',
+		'~/App_Plugins/Umbraco-hide-properties/backoffice/overlays/tabPicker/tabPicker.overlay.controller.js',
 		'~/App_Plugins/Umbraco-hide-properties/backoffice/overlays/propertyPicker/propertyPicker.overlay.controller.js'
 	]
 }

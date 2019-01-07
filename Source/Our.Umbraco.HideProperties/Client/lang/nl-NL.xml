@@ -5,11 +5,11 @@
     <key alias="createRule">Maak een nieuwe regel</key>
 
     <key alias="contentType">Inhoudstype</key>
-    <key alias="contentTypeDescription">Selecteer inhoudstype waarop deze regel van toepassing is</key>
+    <key alias="contentTypeDescription">Selecteer het inhoudstype waarop deze regel van toepassing is</key>
     <key alias="tabs">Tabs</key>
-    <key alias="tabsDescription">Selecteer nul of meer tabbladen</key>
+    <key alias="tabsDescription">Selecteer geen, één of meer tabbladen waarop deze regel van toepassing is</key>
     <key alias="properties">Eigenschappen</key>
-    <key alias="propertiesDescription">Selecteer nul of meer eigenschappen</key>
+    <key alias="propertiesDescription">Selecteer geen, één of meer eigenschappen waarop deze regel van toepassing is</key>
     <key alias="userGroups">Gebruikersgroepen</key>
     <key alias="userGroupsDescription">Selecteer één of meer gebruikersgroepen waarop deze regel van toepassing is</key>
 
@@ -19,7 +19,7 @@
     <key alias="propertyOverlay">Selecteer eigenschappen</key>
     <key alias="userGroupOverlay">Selecteer gebruikersgroepen</key>
 
-    <key alias="noRules">Maak alstublieft enkele regels</key>
+    <key alias="noRules">Maak nieuwe regels</key>
     <key alias="noContentTypeSelected">Selecteer een inhoudstype</key>
     <key alias="noTabsOrPropertiesSelected">Selecteer één of meer tabs of eigenschappen</key>
     <key alias="noUserGroupsSelected">Selecteer één of meer gebruikersgroepen</key>
