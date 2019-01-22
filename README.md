@@ -34,4 +34,4 @@ of this package you will get a `hide properties` dashboard in the settings secti
 ![Rule Editor](Documentation/Screenshots/Rule%20Editor.png)
 
 ## License
-Licensed under the [MIT License](LICENSE.md)
+Licensed under the [MIT License](LICENSE)
