@@ -39,4 +39,4 @@ of this package you will get a `hide properties` dashboard in the settings secti
 *Editor - Change and update selected rule*
 
 ## License
-Licensed under the [MIT License](LICENSE.md)
+Licensed under the [MIT License](LICENSE)
